@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Blank</ion-title>
+        <ion-title>GN_titleTemplate</ion-title>
       </ion-toolbar>
     </ion-header>
     
