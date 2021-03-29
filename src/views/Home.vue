@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>GN_titleTemplate</ion-title>
+        <ion-title>Title Page</ion-title>
       </ion-toolbar>
     </ion-header>
 
@@ -18,10 +18,10 @@
           <h1>G.A.W. RPG</h1>
         </div>
         <div>
-          <ion-button color="primary">Primary</ion-button>
+          <ion-button color="primary" href="/characterCreation">Start</ion-button>
         </div>
         <div>
-          <ion-button color="danger">Quit</ion-button>
+          <ion-button color="danger">Quit (Doesn't function)</ion-button>
         </div>
       </div>
     </ion-content>
