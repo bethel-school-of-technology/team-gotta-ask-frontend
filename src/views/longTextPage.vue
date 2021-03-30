@@ -3,7 +3,7 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Character Creation</ion-title>
+        <ion-title>Long Text Page</ion-title>
       </ion-toolbar>
     </ion-header>
 
@@ -16,25 +16,11 @@
 
       <div id="container">
         <div>
-          <ion-label position="stacked">Character Name</ion-label>
-          <ion-input placeholder="John Doe"></ion-input>
+            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
         </div>
         <div>
-          <!--this can be hard coded in like this-->
-          <p>5 total points available.</p>
-        </div>
-        <!--for these inputs I wonder if we can add a function that adds them up and if they exceed the number allotted throw an alert to the user-->
-        <div>
-          <ion-label position="fixed">HP</ion-label>
-          <ion-input placeholder="1-5"></ion-input>
-        </div>
-        <div>
-          <ion-label position="fixed">ATTACK</ion-label>
-          <ion-input placeholder="1-5"></ion-input>
-        </div>
-        <div>
-            <!--this button would send the input information to the backend to be recorded and it will route to the next page-->
-            <ion-button href="/longTextPage">Continue</ion-button>
+          <!--these buttons will most likely have to call script that initiates a request to the backend as well as routes to the correct page-->
+          <ion-button color="primary" href="/characterCreation">Continue</ion-button>
         </div>
       </div>
     </ion-content>
@@ -52,7 +38,7 @@ import {
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "characterCreation",
+  name: "longTextPage",
   components: {
     IonContent,
     IonHeader,
