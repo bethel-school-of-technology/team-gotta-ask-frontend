@@ -1,3 +1,4 @@
+<!--CSS needs to be added to this page, remember to prioritze the look for mobile-->
 <template>
   <ion-page>
     <ion-header :translucent="true">
@@ -19,8 +20,10 @@
           <ion-input placeholder="John Doe"></ion-input>
         </div>
         <div>
+          <!--this can be hard coded in like this-->
           <p>5 total points available.</p>
         </div>
+        <!--for these inputs I wonder if we can add a function that adds them up and if they exceed the number allotted throw an alert to the user-->
         <div>
           <ion-label position="fixed">HP</ion-label>
           <ion-input placeholder="1-5"></ion-input>
@@ -30,6 +33,7 @@
           <ion-input placeholder="1-5"></ion-input>
         </div>
         <div>
+            <!--this button would send the input information to the backend to be recorded and it will route to the next page-->
             <ion-button>Continue</ion-button>
         </div>
       </div>

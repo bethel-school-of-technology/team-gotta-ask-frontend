@@ -1,3 +1,4 @@
+<!--CSS needs to be added to this page, remember to prioritze the look for mobile-->
 <template>
   <ion-page>
     <ion-header :translucent="true">
@@ -18,9 +19,11 @@
           <h1>G.A.W. RPG</h1>
         </div>
         <div>
+          <!--these buttons will most likely have to call script that initiates a request to the backend as well as routes to the correct page-->
           <ion-button color="primary" href="/characterCreation">Start</ion-button>
         </div>
         <div>
+          <!--these buttons will most likely have to call script that initiates a request to the backend as well as routes to the correct page-->
           <ion-button color="danger">Quit (Doesn't function)</ion-button>
         </div>
       </div>
