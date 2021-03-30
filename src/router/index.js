@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
-import Home from '../views/Home.vue'
-import characterCreation from '../views/characterCreation.vue'
-import longTextPage from '../views/longTextPage.vue'
-import actionPage from '../views/actionPage.vue'
+import Home from '../views/Home.vue';
+import characterCreation from '../views/characterCreation.vue';
+import longTextPage from '../views/longTextPage.vue';
+import actionPage from '../views/actionPage.vue';
+import victoryPage from '../views/victoryPage.vue';
 
 const routes = [
   {
@@ -28,6 +29,11 @@ const routes = [
     path: '/actionPage',
     name: 'actionPage',
     component: actionPage
+  },
+  {
+    path: '/victoryPage',
+    name: 'victoryPage',
+    component: victoryPage
   }
 ]
 
