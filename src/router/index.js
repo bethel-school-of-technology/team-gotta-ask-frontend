@@ -4,6 +4,7 @@ import characterCreation from '../views/characterCreation.vue';
 import longTextPage from '../views/longTextPage.vue';
 import actionPage from '../views/actionPage.vue';
 import victoryPage from '../views/victoryPage.vue';
+import gameOverPage from '../views/gameOverPage.vue';
 
 const routes = [
   {
@@ -34,6 +35,11 @@ const routes = [
     path: '/victoryPage',
     name: 'victoryPage',
     component: victoryPage
+  },
+  {
+    path: '/gameOverPage',
+    name: 'gameOverPage',
+    component: gameOverPage
   }
 ]
 
