@@ -20,7 +20,7 @@
         </div>
         <div>
           <!--these buttons will most likely have to call script that initiates a request to the backend as well as routes to the correct page-->
-          <ion-button color="primary" href="/characterCreation">Continue</ion-button>
+          <ion-button color="primary" href="/actionPage">Continue</ion-button>
         </div>
       </div>
     </ion-content>
