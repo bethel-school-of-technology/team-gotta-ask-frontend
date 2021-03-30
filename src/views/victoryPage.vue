@@ -3,7 +3,7 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Title Page</ion-title>
+        <ion-title>Long Text Page</ion-title>
       </ion-toolbar>
     </ion-header>
 
@@ -15,18 +15,13 @@
       </ion-header>
 
       <div id="container">
+        <h1>Victory!</h1>
         <div>
-          <h1>G.A.W. RPG</h1>
+            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
         </div>
         <div>
           <!--these buttons will most likely have to call script that initiates a request to the backend as well as routes to the correct page-->
-          <ion-button color="primary" href="/characterCreation">Start</ion-button>
-          <ion-button color="primary" href="/victoryPage">Victory</ion-button>
-          <ion-button color="primary" href="/gameOverPage">Game Over</ion-button>
-        </div>
-        <div>
-          <!--these buttons will most likely have to call script that initiates a request to the backend as well as routes to the correct page-->
-          <ion-button color="danger">Quit (Doesn't function)</ion-button>
+          <ion-button color="primary" href="/Home">Play Again</ion-button>
         </div>
       </div>
     </ion-content>
@@ -44,7 +39,7 @@ import {
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "Home",
+  name: "victoryPage",
   components: {
     IonContent,
     IonHeader,
