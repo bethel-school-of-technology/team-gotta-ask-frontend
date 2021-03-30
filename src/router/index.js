@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import Home from '../views/Home.vue'
 import characterCreation from '../views/characterCreation.vue'
+import longTextPage from '../views/longTextPage.vue'
 
 const routes = [
   {
@@ -16,6 +17,11 @@ const routes = [
     path: '/charactercreation',
     name: 'characterCreation',
     component: characterCreation
+  },
+  {
+    path: '/longTextPage',
+    name: 'longTextPage',
+    component: longTextPage
   }
 ]
 
