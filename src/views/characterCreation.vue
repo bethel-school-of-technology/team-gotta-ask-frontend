@@ -42,4 +42,4 @@
 </template>
 
 <script src="./Script/characterCreation.js"></script>
-<style src="./CSS/characterCreation.css"></style>
+<style src="./CSS/characterCreation.css" scoped></style>
