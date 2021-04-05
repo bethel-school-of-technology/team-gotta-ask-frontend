@@ -3,7 +3,7 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Character Creation</ion-title>
+        <ion-title>Custom Character</ion-title>
       </ion-toolbar>
     </ion-header>
 
@@ -15,26 +15,34 @@
       </ion-header>
 
       <div id="container">
-        <div>
-          <ion-label position="stacked">Character Name</ion-label>
-          <ion-input placeholder="John Doe"></ion-input>
+        <div id="characterName">
+          <ion-label>Character Name</ion-label>
+          <ion-input placeholder="Johnny Apple"></ion-input>
         </div>
-        <div>
+        <div id="pointsAvailable">
           <!--this can be hard coded in like this-->
-          <p>5 total points available.</p>
+          <p>5 available points</p>
         </div>
         <!--for these inputs I wonder if we can add a function that adds them up and if they exceed the number allotted throw an alert to the user-->
-        <div>
-          <ion-label position="fixed">HP</ion-label>
-          <ion-input placeholder="1-5"></ion-input>
+        <div id="hpContainer">
+          <div id="hp">
+            <ion-label position="fixed">HP</ion-label>
+          </div>
+          <div id="hpInput">
+            <ion-input placeholder="1-5" id="hpNumber"></ion-input>
+          </div>
         </div>
-        <div>
-          <ion-label position="fixed">ATTACK</ion-label>
-          <ion-input placeholder="1-5"></ion-input>
+        <div id="attackContainer">
+          <div id="attack">
+            <ion-label position="fixed">ATTACK</ion-label>
+          </div>
+          <div id="attackInput">
+            <ion-input placeholder="1-5" id="attackNumber"></ion-input>
+          </div>
         </div>
-        <div>
+        <div id="continue">
             <!--this button would send the input information to the backend to be recorded and it will route to the next page-->
-            <ion-button href="/longTextPage">Continue</ion-button>
+            <ion-button @click="checkNumbers()">Continue</ion-button>
         </div>
       </div>
     </ion-content>

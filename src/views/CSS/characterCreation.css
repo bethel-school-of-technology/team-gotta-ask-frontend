@@ -1,27 +1,54 @@
-#container {
-    text-align: center;
-  
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  
-  #container strong {
-    font-size: 20px;
-    line-height: 26px;
-  }
-  
-  #container p {
-    font-size: 16px;
-    line-height: 22px;
-  
-    color: #8c8c8c;
-  
-    margin: 0;
-  }
-  
-  #container a {
-    text-decoration: none;
-  }
+#container{
+  width: 100vw;
+  height: 80vh;
+  margin: 0 auto;
+  display:grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+
+#characterName{
+  align-content: center;
+  justify-content: center
+}
+
+#pointsAvailable{
+  align-content: center;
+  justify-content: center
+}
+
+#hpContainer{
+  display:grid;
+  grid-template-columns: repeat(6 , 1fr);
+}
+
+#hp{
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+#hpInput{
+  grid-column-start: 3;
+  grid-column-end: 6;
+}
+
+#attackContainer{
+  display:grid;
+  grid-template-columns: repeat(6 , 1fr);
+}
+
+#attack{
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+#attackInput{
+  grid-column-start: 3;
+  grid-column-end: 6;
+}
+
+#continue{
+  position: fixed;
+  bottom: 20px;
+  right: 20px
+}
