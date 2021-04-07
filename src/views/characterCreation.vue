@@ -49,5 +49,12 @@
   </ion-page>
 </template>
 
-<script src="./Script/characterCreation.js"></script>
+<script>  
+  import {checkNumbers} from "./Script/characterCreation.js";
+  export default {
+    methods: {
+      checkNumbers
+    }
+  }
+</script>
 <style src="./CSS/characterCreation.css" scoped></style>
