@@ -17,18 +17,18 @@
       <div id="container">
         <div id="actionText">
           <p>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt"
+            Enemy: {{ enemy.name }} <br>
+            Hp: {{ enemy.hp }} <br>
+            Attack: {{ enemy.attack }}
           </p>
         </div>
         <ion-list id="statBar" lines="none">
           <!--  icon is not currently rendering, will fix later -->
           <ion-icon name="person"></ion-icon>
           <ion-list id="stats">
-            <ion-item>Zandek</ion-item>
-            <ion-item>HP: 100</ion-item>
-            <ion-item>Atk: 25</ion-item>
+            <ion-item>{{ player.name }}</ion-item>
+            <ion-item>HP: {{ player.hp }}</ion-item>
+            <ion-item>Atk: {{ player.attack }}</ion-item>
           </ion-list>
         </ion-list>
         <div id="path">
@@ -46,5 +46,27 @@
   </ion-page>
 </template>
 
-<script src="./Script/actionPage.js"></script>
+<!-- <script src="./Script/actionPage.js"></script> -->
+<script>
+  import { fetchEnemy, fetchPlayer } from './Script/actionPage.js'
+  export default {
+    data() {
+      return {
+        player: {},
+        enemy: {}
+      };
+    },
+    created() {
+      this.fetchPlayer();
+      this.fetchEnemy();
+    },
+    methods: {
+      fetchPlayer,
+      fetchEnemy
+    }
+  }
+
+</script>
+
+
 <style src="./CSS/actionPage.css" scoped></style>
