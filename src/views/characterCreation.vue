@@ -21,7 +21,7 @@
         </div>
         <div id="pointsAvailable">
           <!--this can be hard coded in like this-->
-          <p>5 available points</p>
+          <p>10 available points</p>
         </div>
         <!--for these inputs I wonder if we can add a function that adds them up and if they exceed the number allotted throw an alert to the user-->
         <div id="hpContainer">

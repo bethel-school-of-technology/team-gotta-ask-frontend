@@ -23,7 +23,7 @@ import {
       alert("More than 10 points input, adjust values and try again")
     }
     else {
-      window.location.href = 'http://localhost:8100/longTextPage';
+      window.location.href = '/longTextPage';
     }
     console.log("functin called")
   }
