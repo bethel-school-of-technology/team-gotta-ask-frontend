@@ -29,7 +29,7 @@
             <ion-label position="fixed">HP</ion-label>
           </div>
           <div id="hpInput">
-            <ion-input placeholder="1-5" id="hpNumber"></ion-input>
+            <ion-input placeholder="1-10" id="hpNumber"></ion-input>
           </div>
         </div>
         <div id="attackContainer">
@@ -37,7 +37,7 @@
             <ion-label position="fixed">ATTACK</ion-label>
           </div>
           <div id="attackInput">
-            <ion-input placeholder="1-5" id="attackNumber"></ion-input>
+            <ion-input placeholder="1-10" id="attackNumber"></ion-input>
           </div>
         </div>
         <div id="continue">

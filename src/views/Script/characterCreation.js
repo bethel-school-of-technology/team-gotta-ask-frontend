@@ -25,5 +25,5 @@ import {
     else {
       window.location.href = '/longTextPage';
     }
-    console.log("functin called")
+    console.log("function called")
   }
