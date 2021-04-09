@@ -30,7 +30,7 @@
         </div>
         <div id="actionButtons">
           <!--  -->
-          <ion-button class="aButton" color="danger">Attack</ion-button>
+          <ion-button @click= "attack()" class="aButton" color="danger">Attack</ion-button>
           <ion-button class="aButton" color="medium">Defend</ion-button>
           <ion-button class="aButton" color="success">Heal</ion-button>
         </div>
@@ -41,7 +41,7 @@
 
 <!-- <script src="./Script/actionPage.js"></script> -->
 <script>
-  import { fetchEnemy, fetchPlayer } from './Script/actionPage.js'
+  import { fetchEnemy, fetchPlayer, attack} from './Script/actionPage.js'
   export default {
     data() {
       return {
@@ -55,10 +55,10 @@
     },
     methods: {
       fetchPlayer,
-      fetchEnemy
+      fetchEnemy,
+      attack
     }
   }
-
 </script>
 
 
