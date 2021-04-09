@@ -7,28 +7,21 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Blank</ion-title>
-        </ion-toolbar>
-      </ion-header>
-
       <div id="container">
         <div id="actionText">
           <p>
-            Enemy: {{ enemy.name }} <br>
-            Hp: {{ enemy.hp }} <br>
-            Attack: {{ enemy.attack }}
+            Enemy: {{ enemy.Name }} <br>
+            Hp: {{ enemy.Hp }} <br>
+            Attack: {{ enemy.Attack }}
           </p>
         </div>
         <ion-list id="statBar" lines="none">
           <!--  icon is not currently rendering, will fix later -->
           <ion-icon name="person"></ion-icon>
           <ion-list id="stats">
-            <ion-item>{{ player.name }}</ion-item>
-            <ion-item>HP: {{ player.hp }}</ion-item>
-            <ion-item>Atk: {{ player.attack }}</ion-item>
+            <ion-item>{{ player.Name }}</ion-item>
+            <ion-item>HP: {{ player.Hp }}</ion-item>
+            <ion-item>Atk: {{ player.Attack }}</ion-item>
           </ion-list>
         </ion-list>
         <div id="path">
@@ -42,7 +35,7 @@
           <ion-button class="aButton" color="success">Heal</ion-button>
         </div>
       </div>
-    </ion-content>
+
   </ion-page>
 </template>
 
