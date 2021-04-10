@@ -35,12 +35,7 @@ import {
         ));
   }
 
-  function returner(Name, Hp, Attack) {
-    console.log(Name, Hp, Attack);
-    return (Name, Hp, Attack);
-  }
-  
-  export function attack(Hp, Attack, Name) {
+  function playerAttack(Attack, Hp, Name){
     let newHp;
 
     if (Hp - Attack <= 0){
@@ -50,11 +45,34 @@ import {
     else {
       newHp = Hp - Attack;
       console.log(newHp);
-      alert("You did " + this.player.Attack + " damage!");
+      alert("You did " + Attack + " damage!");
     }
+    return newHp;
+  }
 
-    this.enemy.Hp = newHp;
-    return this.enemy.Hp;
+  function enemyAttack(Attack, Hp, Name) {
+    let newHp;
+
+    if(Hp - Attack <=0) {
+      newHp = 0;
+      alert("... aww this must be death ...")
+    }
+    else {
+      newHp = Hp - Attack;
+      alert(Name + " attacks for " + Attack + " damage!");
+    }
+    return newHp;
+  }
+
+  
+  export function attack(eHp, eAttack, eName, pHp, pAttack) {
+    
+    let enemyHealth = playerAttack(pAttack, eHp, eName);
+    console.log(enemyHealth);
+    this.enemy.Hp = enemyHealth;
+    let playerHealth = enemyAttack(eAttack, pHp, eName);
+    console.log(playerHealth);
+    this.player.Hp = playerHealth;
   }
 
   export function fetchEnemy() {
@@ -64,8 +82,7 @@ import {
       .then(data => (
         hope.enemy.Name = data.data.name,
         hope.enemy.Hp = data.data.hp,
-        hope.enemy.Attack = data.data.attack,
-        returner(hope.enemy.Name, hope.enemy.Hp, hope.enemy.Attack)
+        hope.enemy.Attack = data.data.attack
       ));
   }
 
