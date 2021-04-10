@@ -10,9 +10,11 @@
       <div id="container">
         <div id="actionText">
           <p>
-            Enemy: {{ enemy.Name }} <br>
-            Hp: {{ enemy.Hp }} <br>
-            Attack: {{ enemy.Attack }}
+            {{ enemy.Name }} 
+            Hp: {{ enemy.Hp }}     
+            Attack: {{ enemy.Attack }}<br>
+            {{ logText }} <br>
+            {{ log2Text }}
           </p>
         </div>
         <ion-list id="statBar" lines="none">

@@ -37,42 +37,45 @@ import {
 
   function playerAttack(Attack, Hp, Name){
     let newHp;
-
+    let text;
     if (Hp - Attack <= 0){
       newHp = 0;
-      alert("You did " + Hp + " damage! " + Name + " defeated!");
+      text = ("You did " + Hp + " damage! " + Name + " defeated!");
     }
     else {
       newHp = Hp - Attack;
-      console.log(newHp);
-      alert("You did " + Attack + " damage!");
+      //console.log(newHp);
+      text = ("You did " + Attack + " damage!");
     }
-    return newHp;
+    return [newHp, text];
   }
 
   function enemyAttack(Attack, Hp, Name) {
     let newHp;
-
+    let text;
     if(Hp - Attack <=0) {
       newHp = 0;
-      alert("... aww this must be death ...")
+    text = ("... aww this must be death ...")
     }
     else {
       newHp = Hp - Attack;
-      alert(Name + " attacks for " + Attack + " damage!");
+      text = (Name + " attacks for " + Attack + " damage!");
     }
-    return newHp;
+    return [newHp, text];
   }
 
   
   export function attack(eHp, eAttack, eName, pHp, pAttack) {
     
     let enemyHealth = playerAttack(pAttack, eHp, eName);
-    console.log(enemyHealth);
-    this.enemy.Hp = enemyHealth;
+    console.log(enemyHealth[0]);
+    this.enemy.Hp = enemyHealth[0];
+    this.logText = enemyHealth[1];
+
     let playerHealth = enemyAttack(eAttack, pHp, eName);
-    console.log(playerHealth);
-    this.player.Hp = playerHealth;
+    console.log(playerHealth[0]);
+    this.player.Hp = playerHealth[0];
+    this.log2Text = playerHealth[1];
   }
 
   export function fetchEnemy() {
