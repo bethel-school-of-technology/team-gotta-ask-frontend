@@ -30,7 +30,7 @@
         </div>
         <div id="actionButtons">
           <!--  -->
-          <ion-button @click= "attack()" class="aButton" color="danger">Attack</ion-button>
+          <ion-button @click= "attack(enemy.Hp, player.Attack, enemy.Name)" class="aButton" color="danger">Attack</ion-button>
           <ion-button class="aButton" color="medium">Defend</ion-button>
           <ion-button class="aButton" color="success">Heal</ion-button>
         </div>

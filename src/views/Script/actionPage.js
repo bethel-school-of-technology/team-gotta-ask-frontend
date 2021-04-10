@@ -34,15 +34,32 @@ import {
         hope.player.Attack = data.data.attack
         ));
   }
+
+  function returner(Name, Hp, Attack) {
+    console.log(Name, Hp, Attack);
+    return (Name, Hp, Attack);
+  }
+  
+  export function attack(Hp, Attack, Name) {
+    let newHp;
+
+    if (Hp - Attack <= 0){
+      newHp = 0;
+      alert("You did " + Hp + " damage! " + Name + " defeated!");
+    }
+    else {
+      newHp = Hp - Attack;
+      console.log(newHp);
+      alert("You did " + this.player.Attack + " damage!");
+    }
+
+    this.enemy.Hp = newHp;
+    return this.enemy.Hp;
+  }
+
   export function fetchEnemy() {
     var hope = this;
-
-    function returner(Name, Hp, Attack) {
-      alert("Take that!");
-      console.log(Name, Hp, Attack);
-      return (Name, Hp, Attack);
-    }
-    return axios
+    axios
       .get(`${server.baseURL}/enemy/Goblin`) //hardcoded "goblin" for time being
       .then(data => (
         hope.enemy.Name = data.data.name,
