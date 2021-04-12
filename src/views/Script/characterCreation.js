@@ -6,6 +6,7 @@ import {
     IonToolbar,
   } from "@ionic/vue";
 import { defineComponent } from "vue";
+import { server } from '../../helper.js';
 import axios from "axios";
   
   export default defineComponent({
@@ -25,7 +26,7 @@ import axios from "axios";
     var attack = document.getElementById("attackInput");
     axios
       .post (
-        ' /*url*/ ',
+        `${server.baseURL}/player/create`,
         {
           name: name,
           hp: hp,
