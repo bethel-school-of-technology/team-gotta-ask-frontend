@@ -1,4 +1,3 @@
-<!--CSS needs to be added to this page, remember to prioritze the look for mobile-->
 <template>
   <ion-page>
     <ion-header :translucent="true">
@@ -53,10 +52,20 @@
 </template>
 
 <script>  
-  import {checkNumbers} from "./Script/characterCreation.js";
+  import {checkNumbers, postPlayer, id} from "./Script/characterCreation.js";
+  console.log(id);
   export default {
+    props:[id],
+
+    data() {
+      return {
+        id: id,
+        };
+      },
+
     methods: {
-      checkNumbers
+      checkNumbers,
+      postPlayer
     }
   }
 </script>

@@ -1,4 +1,3 @@
-<!--CSS needs to be added to this page, remember to prioritze the look for mobile-->
 <template>
   <ion-page>
     <ion-header :translucent="true">
@@ -21,10 +20,7 @@
           </div>
         </div>
         <div id="startButton">
-          <!--these buttons will most likely have to call script that initiates a request to the backend as well as routes to the correct page-->
           <ion-button color="primary" href="/characterCreation">Begin Journey</ion-button>
-          <!-- <ion-button color="primary" href="/victoryPage">Victory</ion-button> -->
-          <!-- <ion-button color="primary" href="/gameOverPage">Game Over</ion-button> -->
         </div>
         <!-- <div id="quitButton"> -->
           <!--these buttons will most likely have to call script that initiates a request to the backend as well as routes to the correct page-->

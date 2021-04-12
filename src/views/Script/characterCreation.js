@@ -20,16 +20,29 @@ import axios from "axios";
     },
   });
 
+  export var id;
+
+  export function randomIdGenerator () {
+    var result;
+    console.log("id var before random generation: " + id);
+    result = Math.floor(Math.random() * 1000000) + 1;
+    result = id;
+    console.log("id var after random generation: " + id);
+    return result;
+  }
+
   export const postPlayer = () => {
+    var playerId = id;
     var name = document.getElementById('customName').value;
     var hp = document.getElementById('hpInput').value;
     var attack = document.getElementById('attackInput').value;
-    console.log(name, hp, attack);
+    console.log(id, name, hp, attack);
 
     axios
       .post (
         `${server.baseURL}/player/create`,
         {
+          id: playerId,
           name: name,
           hp: hp,
           attack: attack

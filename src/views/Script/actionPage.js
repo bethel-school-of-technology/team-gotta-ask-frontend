@@ -22,10 +22,11 @@ import {
 
   import { server } from '../../helper.js';
   import axios from 'axios';
+  import id from '../Script/characterCreation';
 
   export function fetchPlayer() {
     axios
-      .get(`${server.baseURL}/player/606d03b156487248908b74b2`) //hardcoded for time being
+      .get(`${server.baseURL}/player/${id}`)
       .then(data => (this.player = data.data));
   }
   export function fetchEnemy() {

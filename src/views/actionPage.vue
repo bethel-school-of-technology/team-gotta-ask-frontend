@@ -1,4 +1,3 @@
-<!--CSS needs to be added to this page, remember to prioritze the look for mobile-->
 <template>
   <ion-page>
     <ion-header :translucent="true">
@@ -10,7 +9,7 @@
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Blank</ion-title>
+          <ion-title size="large">Combat!</ion-title>
         </ion-toolbar>
       </ion-header>
 
@@ -45,10 +44,11 @@
   </ion-page>
 </template>
 
-<!-- <script src="./Script/actionPage.js"></script> -->
 <script>
   import { fetchEnemy, fetchPlayer } from './Script/actionPage.js'
+  import { id } from "./Script/characterCreation.js";
   export default {
+    props:[id],
     data() {
       return {
         player: {},
