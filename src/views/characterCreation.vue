@@ -18,7 +18,7 @@
 
         <div class="ion-text-center" id="characterName">
           <ion-label>Character Name</ion-label>
-          <ion-input placeholder="Johnny Apple"></ion-input>
+          <ion-input id="customName" placeholder="Johnny Apple"></ion-input>
         </div>
 
         <div class="ion-text-center" id="pointsAvailable">
