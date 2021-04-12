@@ -48,9 +48,10 @@
 </template>
 
 <script>  
-  import {fetchPlaya, updatePlaya, checkNumbers} from "./Script/characterCreation.js";
+  import {updatePlaya, checkNumbers} from "./Script/characterCreation.js";
   export default {
     methods: {
+      updatePlaya,
       checkNumbers
     }
   }
