@@ -10,39 +10,37 @@
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Blank</ion-title>
+          <ion-title size="large">Character Creation</ion-title>
         </ion-toolbar>
       </ion-header>
 
       <div id="container">
-        <div id="characterName">
+
+        <div class="ion-text-center" id="characterName">
           <ion-label>Character Name</ion-label>
           <ion-input placeholder="Johnny Apple"></ion-input>
         </div>
-        <div id="pointsAvailable">
-          <!--this can be hard coded in like this-->
+
+        <div class="ion-text-center" id="pointsAvailable">
           <p>10 available points</p>
         </div>
-        <!--for these inputs I wonder if we can add a function that adds them up and if they exceed the number allotted throw an alert to the user-->
-        <div id="hpContainer">
-          <div id="hp">
-            <ion-label position="fixed">HP</ion-label>
-          </div>
-          <div id="hpInput">
-            <ion-input placeholder="1-10" id="hpNumber"></ion-input>
-          </div>
+  
+        <div class="ion-text-center" id="hpContainer">
+          <ion-item>
+            <ion-label id="hpLabel">HP: </ion-label>
+            <ion-input id="hpInput" placeholder="1-10"></ion-input>
+          </ion-item>
         </div>
-        <div id="attackContainer">
-          <div id="attack">
-            <ion-label position="fixed">ATTACK</ion-label>
-          </div>
-          <div id="attackInput">
-            <ion-input placeholder="1-10" id="attackNumber"></ion-input>
-          </div>
+
+        <div class="ion-text-center" id="attackContainer">
+          <ion-item>
+            <ion-label id="attackLabel">ATTACK: </ion-label>
+            <ion-input id="attackInput" placeholder="1-10"></ion-input>
+          </ion-item>
         </div>
+
         <div id="continue">
-            <!--this button would send the input information to the backend to be recorded and it will route to the next page-->
-            <ion-button @click="checkNumbers()">Continue</ion-button>
+          <ion-button @click="checkNumbers()">Continue</ion-button>
         </div>
       </div>
     </ion-content>

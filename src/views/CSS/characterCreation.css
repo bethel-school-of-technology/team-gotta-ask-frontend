@@ -1,50 +1,5 @@
-#container{
-  width: 100vw;
-  height: 80vh;
-  margin: 0 auto;
-  display:grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-}
-
-#characterName{
-  align-content: center;
-  justify-content: center
-}
-
-#pointsAvailable{
-  align-content: center;
-  justify-content: center
-}
-
-#hpContainer{
-  display:grid;
-  grid-template-columns: repeat(6 , 1fr);
-}
-
-#hp{
-  grid-column-start: 1;
-  grid-column-end: 3;
-}
-
-#hpInput{
-  grid-column-start: 3;
-  grid-column-end: 6;
-}
-
-#attackContainer{
-  display:grid;
-  grid-template-columns: repeat(6 , 1fr);
-}
-
-#attack{
-  grid-column-start: 1;
-  grid-column-end: 3;
-}
-
-#attackInput{
-  grid-column-start: 3;
-  grid-column-end: 6;
+ion-item > ion-label{
+  flex: content;
 }
 
 #continue{

@@ -19,11 +19,13 @@ import {
   });
 
   export function checkNumbers(){
-    if (document.getElementById("hpNumber").value + document.getElementById("attackNumber").value > 10) {
-      alert("More than 10 points input, adjust values and try again")
+    var numbersInput = parseInt(document.getElementById("hpInput").value) + parseInt(document.getElementById("attackInput").value);
+    console.log("does my code know how to add? : " + numbersInput);
+
+    if ( numbersInput > 10) {
+      alert("more than 10 points, please adjust values and try again")
     }
     else {
-      window.location.href = '/longTextPage';
+      window.location.href = '/longTextPage'
     }
-    console.log("function called")
   }
