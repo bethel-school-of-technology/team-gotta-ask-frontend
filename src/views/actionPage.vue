@@ -22,7 +22,7 @@
             eiusmod tempor incididunt"
           </p>
         </div>
-        <ion-list id="statBar">
+        <ion-list id="statBar" lines="none">
           <!--  icon is not currently rendering, will fix later -->
           <ion-icon name="person"></ion-icon>
           <ion-list id="stats">
