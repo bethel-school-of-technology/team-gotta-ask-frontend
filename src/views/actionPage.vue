@@ -24,23 +24,22 @@
         </div>
         <ion-list id="statBar" lines="none">
           <!--  icon is not currently rendering, will fix later -->
-          <ion-icon name="person"></ion-icon>
+          <!-- <ion-icon name="person"></ion-icon> -->
           <ion-list id="stats">
             <ion-item>{{ player.name }}</ion-item>
             <ion-item>HP: {{ player.hp }}</ion-item>
             <ion-item>Atk: {{ player.attack }}</ion-item>
           </ion-list>
         </ion-list>
-        <div id="path">
-          <!-- Routing to be decided with backend progress -->
-          <ion-button color="primary">Continue</ion-button>
-        </div>
         <div id="actionButtons">
           <!--  -->
           <ion-button class="aButton" color="danger">Attack</ion-button>
-          <ion-button class="aButton" color="medium">Defend</ion-button>
+          <ion-button class="aButton" color="warning">Defend</ion-button>
           <ion-button class="aButton" color="success">Heal</ion-button>
         </div>
+      </div>
+      <div>
+        <ion-button id="continue" color="primary">Continue</ion-button>
       </div>
     </ion-content>
   </ion-page>
