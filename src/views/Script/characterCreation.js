@@ -21,9 +21,11 @@ import axios from "axios";
   });
 
   export const postPlayer = () => {
-    var name = document.getElementById("customName");
-    var hp = document.getElementById("hpInput");
-    var attack = document.getElementById("attackInput");
+    var name = document.getElementById('customName').value;
+    var hp = document.getElementById('hpInput').value;
+    var attack = document.getElementById('attackInput').value;
+    console.log(name, hp, attack);
+
     axios
       .post (
         `${server.baseURL}/player/create`,
