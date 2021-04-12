@@ -48,10 +48,9 @@
 </template>
 
 <script>  
-  import {updatePlaya, checkNumbers} from "./Script/characterCreation.js";
+  import {checkNumbers} from "./Script/characterCreation.js";
   export default {
     methods: {
-      updatePlaya,
       checkNumbers
     }
   }
