@@ -3,43 +3,56 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Character Creation</ion-title>
+        <ion-title>Custom Character</ion-title>
       </ion-toolbar>
     </ion-header>
 
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Blank</ion-title>
+          <ion-title size="large">Character Creation</ion-title>
         </ion-toolbar>
       </ion-header>
 
       <div id="container">
-        <div>
-          <ion-label position="stacked">Character Name</ion-label>
-          <ion-input placeholder="John Doe"></ion-input>
+
+        <div class="ion-text-center" id="characterName">
+          <ion-label>Character Name</ion-label>
+          <ion-input placeholder="Johnny Apple"></ion-input>
         </div>
-        <div>
-          <!--this can be hard coded in like this-->
-          <p>5 total points available.</p>
+
+        <div class="ion-text-center" id="pointsAvailable">
+          <p>10 available points</p>
         </div>
-        <!--for these inputs I wonder if we can add a function that adds them up and if they exceed the number allotted throw an alert to the user-->
-        <div>
-          <ion-label position="fixed">HP</ion-label>
-          <ion-input placeholder="1-5"></ion-input>
+  
+        <div class="ion-text-center" id="hpContainer">
+          <ion-item>
+            <ion-label id="hpLabel">HP: </ion-label>
+            <ion-input id="hpInput" placeholder="1-10"></ion-input>
+          </ion-item>
         </div>
-        <div>
-          <ion-label position="fixed">ATTACK</ion-label>
-          <ion-input placeholder="1-5"></ion-input>
+
+        <div class="ion-text-center" id="attackContainer">
+          <ion-item>
+            <ion-label id="attackLabel">ATTACK: </ion-label>
+            <ion-input id="attackInput" placeholder="1-10"></ion-input>
+          </ion-item>
         </div>
-        <div>
-            <!--this button would send the input information to the backend to be recorded and it will route to the next page-->
-            <ion-button href="/longTextPage">Continue</ion-button>
+
+        <div id="continue">
+          <ion-button @click="checkNumbers()">Continue</ion-button>
         </div>
       </div>
     </ion-content>
   </ion-page>
 </template>
 
-<script src="./Script/characterCreation.js"></script>
+<script>  
+  import {checkNumbers} from "./Script/characterCreation.js";
+  export default {
+    methods: {
+      checkNumbers
+    }
+  }
+</script>
 <style src="./CSS/characterCreation.css" scoped></style>
