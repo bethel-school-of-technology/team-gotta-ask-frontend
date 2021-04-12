@@ -39,7 +39,7 @@ import {
 		hp: document.getElementById("hpInput").value,
     attack: document.getElementById("attackInput").value
 	}, 
-  )};
+  )}
 
   export function checkNumbers(){
     var numbersInput = parseInt(document.getElementById("hpInput").value) + parseInt(document.getElementById("attackInput").value);
