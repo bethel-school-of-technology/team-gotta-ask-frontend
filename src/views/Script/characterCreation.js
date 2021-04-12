@@ -20,7 +20,7 @@ import {
     },
   });
 
-  /* export function fetchPlaya() {
+  export function fetchPlaya() {
     var hope = this;
 
     axios
@@ -30,7 +30,7 @@ import {
         hope.player.Hp = data.data.hp,
         hope.player.Attack = data.data.attack
         ));
-  } */
+  }
 
   function updatePlaya() {
     axios.put(`${server.baseURL}/player/606789deee2ca644d45b2280`, 
