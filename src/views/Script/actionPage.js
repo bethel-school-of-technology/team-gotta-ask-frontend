@@ -27,7 +27,7 @@ import {
     var hope = this;
 
     axios
-      .get(`${server.baseURL}/player/606d03b156487248908b74b2`) //hardcoded for time being
+      .get(`${server.baseURL}/player/607226a13065f10c0d2c584d`) //hardcoded for time being
       .then(data => (
         hope.player.Name = data.data.name,
         hope.player.Hp = data.data.hp,
