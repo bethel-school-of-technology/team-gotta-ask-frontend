@@ -46,9 +46,7 @@
 
 <script>
   import { fetchEnemy, fetchPlayer } from './Script/actionPage.js'
-  import { id } from "./Script/characterCreation.js";
   export default {
-    props:[id],
     data() {
       return {
         player: {},

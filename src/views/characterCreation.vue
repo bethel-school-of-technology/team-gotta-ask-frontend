@@ -52,20 +52,12 @@
 </template>
 
 <script>  
-  import {checkNumbers, postPlayer, id} from "./Script/characterCreation.js";
-  console.log(id);
+  import {checkNumbers, postPlayer, randomIdGenerator} from "./Script/characterCreation.js";
   export default {
-    props:[id],
-
-    data() {
-      return {
-        id: id,
-        };
-      },
-
     methods: {
       checkNumbers,
-      postPlayer
+      postPlayer,
+      randomIdGenerator
     }
   }
 </script>

@@ -23,16 +23,12 @@ import axios from "axios";
   export var id;
 
   export function randomIdGenerator () {
-    var result;
-    console.log("id var before random generation: " + id);
-    result = Math.floor(Math.random() * 1000000) + 1;
-    result = id;
-    console.log("id var after random generation: " + id);
-    return result;
+    id = Math.floor(Math.random() * 1000000) + 1;
+    return id;
   }
 
   export const postPlayer = () => {
-    var playerId = id;
+    var id = id;
     var name = document.getElementById('customName').value;
     var hp = document.getElementById('hpInput').value;
     var attack = document.getElementById('attackInput').value;
@@ -42,7 +38,7 @@ import axios from "axios";
       .post (
         `${server.baseURL}/player/create`,
         {
-          id: playerId,
+          id: id,
           name: name,
           hp: hp,
           attack: attack
@@ -63,6 +59,7 @@ import axios from "axios";
       alert("more than 10 points, please adjust values and try again")
     }
     else {
+      randomIdGenerator();
       postPlayer();
       window.location.href = '/longTextPage'
     }
