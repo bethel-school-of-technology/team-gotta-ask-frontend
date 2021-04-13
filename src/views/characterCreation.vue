@@ -53,20 +53,24 @@
 
 <script>  
   import {checkNumbers, postPlayer, randomIdGenerator} from "./Script/characterCreation.js";
+  //import { actionPage } from "./actionPage.vue";
+  //import { longTextPage } from "./longTextPage.vue";
+  
   export default {
-
-     provide() {
+    data() {
       return {
-      todoLength: Vue.computed(() => this.todos.length)
-    }
-  }
-})
-
+        playerId: {}
+      }
+    },
     methods: {
       checkNumbers,
       postPlayer,
       randomIdGenerator
     }
+    //components: {
+    //  actionPage,
+    //  longTextPage
+    //}
   }
 </script>
 <style src="./CSS/characterCreation.css" scoped></style>

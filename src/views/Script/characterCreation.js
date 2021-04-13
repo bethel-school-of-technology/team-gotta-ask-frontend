@@ -61,7 +61,9 @@ import axios from "axios";
       //randomIdGenerator();
       var x = randomIdGenerator();
       console.log(x);
+      this.playerId = x;
       postPlayer(x);
-      //window.location.href = '/longTextPage'
+      window.location.href = '/longTextPage'
+      return this.playerId;
     }
   }

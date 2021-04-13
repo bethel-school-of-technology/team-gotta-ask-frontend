@@ -53,8 +53,6 @@
         enemy: {}
       };
     },
-    inject:
-      [playerId],
     created() {
       this.fetchPlayer();
       this.fetchEnemy();
