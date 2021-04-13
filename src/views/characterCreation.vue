@@ -1,4 +1,3 @@
-<!--CSS needs to be added to this page, remember to prioritze the look for mobile-->
 <template>
   <ion-page>
     <ion-header :translucent="true">
@@ -15,10 +14,15 @@
       </ion-header>
 
       <div id="container">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
 
         <div class="ion-text-center" id="characterName">
           <ion-label>Character Name</ion-label>
-          <ion-input id="customName" placeholder="Johnny Apple"></ion-input>
+          <ion-input id="customName" placeholder="Joe Blow"></ion-input>
         </div>
 
         <div class="ion-text-center" id="pointsAvailable">
@@ -48,11 +52,25 @@
 </template>
 
 <script>  
-  import {checkNumbers} from "./Script/characterCreation.js";
+  import {checkNumbers, postPlayer, randomIdGenerator} from "./Script/characterCreation.js";
+  //import { actionPage } from "./actionPage.vue";
+  //import { longTextPage } from "./longTextPage.vue";
+  
   export default {
+    data() {
+      return {
+        playerId: {}
+      }
+    },
     methods: {
-      checkNumbers
+      checkNumbers,
+      postPlayer,
+      randomIdGenerator
     }
+    //components: {
+    //  actionPage,
+    //  longTextPage
+    //}
   }
 </script>
 <style src="./CSS/characterCreation.css" scoped></style>
