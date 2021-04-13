@@ -22,9 +22,9 @@ import {
 
   import { server } from '../../helper.js';
   import axios from 'axios';
-  import id from '../Script/characterCreation';
 
-  export function fetchPlayer() {
+  export function fetchPlayer(x) {
+    var id = x;
     axios
       .get(`${server.baseURL}/player/${id}`)
       .then(data => (this.player = data.data));

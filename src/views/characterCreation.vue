@@ -54,6 +54,14 @@
 <script>  
   import {checkNumbers, postPlayer, randomIdGenerator} from "./Script/characterCreation.js";
   export default {
+
+     provide() {
+      return {
+      todoLength: Vue.computed(() => this.todos.length)
+    }
+  }
+})
+
     methods: {
       checkNumbers,
       postPlayer,
