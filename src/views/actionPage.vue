@@ -1,4 +1,3 @@
-<!--CSS needs to be added to this page, remember to prioritze the look for mobile-->
 <template>
   <ion-page>
     <ion-header :translucent="true">
@@ -19,17 +18,13 @@
         </div>
         <ion-list id="statBar" lines="none">
           <!--  icon is not currently rendering, will fix later -->
-          <ion-icon name="person"></ion-icon>
+          <!-- <ion-icon name="person"></ion-icon> -->
           <ion-list id="stats">
             <ion-item>{{ player.Name }}</ion-item>
             <ion-item>HP: {{ player.Hp }}</ion-item>
             <ion-item>Atk: {{ player.Attack }}</ion-item>
           </ion-list>
         </ion-list>
-        <div id="path">
-          <!-- Routing to be decided with backend progress -->
-          <ion-button color="primary">Continue</ion-button>
-        </div>
         <div id="actionButtons">
           <!--  -->
           <ion-button @click= "attack(enemy.Hp, enemy.Attack, enemy.Name, player.Hp, player.Attack)" class="aButton" color="danger">Attack</ion-button>
@@ -41,7 +36,6 @@
   </ion-page>
 </template>
 
-<!-- <script src="./Script/actionPage.js"></script> -->
 <script>
   import { fetchEnemy, fetchPlayer, attack} from './Script/actionPage.js'
   export default {

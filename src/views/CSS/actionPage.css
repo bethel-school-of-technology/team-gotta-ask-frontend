@@ -24,13 +24,13 @@
   #actionButtons {
       display: grid;
       grid-template-rows: 1fr 1fr 1fr;
-      grid-row: 6/10;
+      grid-row: 7/10;
       grid-column: 7/12;
   }
   
   #statBar {
       display: grid;
-      grid-row: 6/10;
+      grid-row: 7/10;
       grid-column: 2/5;
   }
   
@@ -50,4 +50,10 @@
   
   #container a {
     text-decoration: none;
+  }
+
+  #continue{
+    position: fixed;
+    bottom: 20px;
+    right: 20px
   }

@@ -20,16 +20,25 @@ import axios from "axios";
     },
   });
 
+  export var id;
+
+  export function randomIdGenerator () {
+    id = Math.floor(Math.random() * 1000000) + 1;
+    return id;
+  }
+
   export const postPlayer = () => {
+    var id = id;
     var name = document.getElementById('customName').value;
     var hp = document.getElementById('hpInput').value;
     var attack = document.getElementById('attackInput').value;
-    console.log(name, hp, attack);
+    console.log(id, name, hp, attack);
 
     axios
       .post (
         `${server.baseURL}/player/create`,
         {
+          id: id,
           name: name,
           hp: hp,
           attack: attack
@@ -50,6 +59,7 @@ import axios from "axios";
       alert("more than 10 points, please adjust values and try again")
     }
     else {
+      randomIdGenerator();
       postPlayer();
       window.location.href = '/longTextPage'
     }

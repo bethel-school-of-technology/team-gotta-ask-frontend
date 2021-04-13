@@ -22,6 +22,7 @@ import {
 
   import { server } from '../../helper.js';
   import axios from 'axios';
+  import id from '../Script/characterCreation';
 
   export function fetchPlayer() {
     var hope = this;
