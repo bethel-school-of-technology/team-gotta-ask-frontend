@@ -28,7 +28,7 @@ import axios from "axios";
   export async function checkNumbers(){
     var numbersInput = parseInt(document.getElementById("hpInput").value) + parseInt(document.getElementById("attackInput").value);
 
-    if ( numbersInput > 10) {
+    if ( numbersInput != 10) {
       alert("more than 10 points, please adjust values and try again")
     }
     else {
