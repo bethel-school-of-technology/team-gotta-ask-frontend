@@ -20,14 +20,12 @@ import axios from "axios";
     },
   });
 
-  export function randomIdGenerator () {
-    var id = Math.floor(Math.random() * 1000000) + 1;
-    console.log(id);
-    return id;
+  export function randomNumberGenerator () {
+    var rando = Math.floor(Math.random() * 1000000) + 1;
+    return rando;
   }
 
-  export const postPlayer = (x) => {
-    var id = x;
+  export const postPlayer = () => {
     var name = document.getElementById('customName').value;
     var hp = 3 * (document.getElementById('hpInput').value) + 20;
     var attack = 2 * (document.getElementById('attackInput').value) + 5;
@@ -36,7 +34,6 @@ import axios from "axios";
       .post (
         `${server.baseURL}/player/create`,
         {
-          id: id,
           name: name,
           hp: hp,
           attack: attack
@@ -57,12 +54,6 @@ import axios from "axios";
       alert("more than 10 points, please adjust values and try again")
     }
     else {
-      var tempId= randomIdGenerator();
-      console.log('1st' + this.playerId);
-      this.playerId = tempId;
-      console.log('2nd' + this.playerId);
-
-      var id = tempId;
       var name = document.getElementById('customName').value;
       var hp = 3 * (document.getElementById('hpInput').value) + 20;
       var attack = 2 * (document.getElementById('attackInput').value) + 5;
@@ -71,7 +62,6 @@ import axios from "axios";
         .post (
           `${server.baseURL}/player/create`,
           {
-            id: id,
             name: name,
             hp: hp,
             attack: attack
