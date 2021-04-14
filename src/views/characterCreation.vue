@@ -52,7 +52,7 @@
 </template>
 
 <script>
-  import {checkNumbers, postPlayer} from "./Script/characterCreation.js";
+  import {checkNumbers} from "./Script/characterCreation.js";
   //import { ActionPage } from "./actionPage.vue";
   //import { longTextPage } from "./longTextPage.vue";
   
@@ -64,8 +64,7 @@
       }
     },
     methods: {
-      checkNumbers,
-      postPlayer
+      checkNumbers
     }
   }
 </script>

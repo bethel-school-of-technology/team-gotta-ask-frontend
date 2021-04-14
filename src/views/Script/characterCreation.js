@@ -29,12 +29,13 @@ import axios from "axios";
     var numbersInput = parseInt(document.getElementById("hpInput").value) + parseInt(document.getElementById("attackInput").value);
 
     if ( numbersInput != 10) {
-      alert("more or less than 10 points, please adjust values and try again")
+      alert("you need to distribute exactly 10 points, please adjust values and try again")
     }
     else {
       var name = document.getElementById('customName').value;
       var hp = 3 * (document.getElementById('hpInput').value) + 20;
       var attack = 2 * (document.getElementById('attackInput').value) + 5;
+      var pageId = 1;
   
       axios
         .post (
@@ -42,7 +43,8 @@ import axios from "axios";
           {
             name: name,
             hp: hp,
-            attack: attack
+            attack: attack,
+            pageId: pageId
           })
           .then(response => {
             console.log(response.data.player._id);
