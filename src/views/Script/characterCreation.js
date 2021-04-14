@@ -20,10 +20,10 @@ import axios from "axios";
     },
   });
 
-  /* export function randomNumberGenerator () {
+   export function randomNumberGenerator () {
     var rando = Math.floor(Math.random() * 1000000) + 1;
     return rando;
-  } */
+  }
 
   export async function checkNumbers(){
     var numbersInput = parseInt(document.getElementById("hpInput").value) + parseInt(document.getElementById("attackInput").value);
