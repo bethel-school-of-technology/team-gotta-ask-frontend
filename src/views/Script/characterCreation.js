@@ -29,8 +29,8 @@ import axios from "axios";
   export const postPlayer = (x) => {
     var id = x;
     var name = document.getElementById('customName').value;
-    var hp = document.getElementById('hpInput').value;
-    var attack = document.getElementById('attackInput').value;
+    var hp = 3 * (document.getElementById('hpInput').value) + 20;
+    var attack = 2 * (document.getElementById('attackInput').value) + 5;
 
     axios
       .post (
@@ -42,14 +42,15 @@ import axios from "axios";
           attack: attack
         })
         .then(response => {
-          console.log(response);
+          console.log(response.data.player._id);
+          localStorage.setItem('playerId', response.data.player._id);
         })
         .catch(err => {
           console.log(err);
         });
   }
 
-  export function checkNumbers(){
+  export async function checkNumbers(){
     var numbersInput = parseInt(document.getElementById("hpInput").value) + parseInt(document.getElementById("attackInput").value);
 
     if ( numbersInput > 10) {
@@ -60,8 +61,29 @@ import axios from "axios";
       console.log('1st' + this.playerId);
       this.playerId = tempId;
       console.log('2nd' + this.playerId);
-      postPlayer(tempId);
-      //window.location.href = '/longTextPage'
-      return this.playerId;
+
+      var id = tempId;
+      var name = document.getElementById('customName').value;
+      var hp = 3 * (document.getElementById('hpInput').value) + 20;
+      var attack = 2 * (document.getElementById('attackInput').value) + 5;
+  
+      axios
+        .post (
+          `${server.baseURL}/player/create`,
+          {
+            id: id,
+            name: name,
+            hp: hp,
+            attack: attack
+          })
+          .then(response => {
+            console.log(response.data.player._id);
+            localStorage.setItem('playerId', response.data.player._id);
+            window.location.href = '/longTextPage'
+          })
+          .catch(err => {
+            console.log(err);
+          });
+    
     }
   }

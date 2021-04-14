@@ -16,4 +16,12 @@ export default defineComponent({
         IonTitle,
         IonToolbar,
     },
+    methods: {
+        clearLocal(){
+            localStorage.removeItem('playerId');
+            console.log('playerId');
+            window.location.href = '/characterCreation';
+        }
+    }
 });
+

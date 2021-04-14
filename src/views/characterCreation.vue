@@ -67,7 +67,7 @@
       checkNumbers,
       postPlayer,
       randomIdGenerator
-    },
+    }
   }
 </script>
 <style src="./CSS/characterCreation.css" scoped></style>

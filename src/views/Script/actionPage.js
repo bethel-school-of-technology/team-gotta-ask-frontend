@@ -25,9 +25,10 @@ import {
 
   export function fetchPlayer() {
     var hope = this;
+    let playerId = localStorage.getItem('playerId')
 
     axios
-      .get(`${server.baseURL}/player/607226a13065f10c0d2c584d`) //hardcoded for time being
+      .get(`${server.baseURL}/player/${playerId}`) //hardcoded for time being
       .then(data => (
         hope.player.Name = data.data.name,
         hope.player.Hp = data.data.hp,
@@ -83,13 +84,12 @@ import {
   export function fetchEnemy() {
     var hope = this;
     axios
-      .get(`${server.baseURL}/enemy/Goblin`) //hardcoded "goblin" for time being
+      .get(`${server.baseURL}/enemy/Connor`) //hardcoded "goblin" for time being
       .then(data => (
         hope.enemy.Name = data.data.name,
         hope.enemy.Hp = data.data.hp,
         hope.enemy.Attack = data.data.attack
       ));
-      //console.log(this.varUgh.playerId);
   }
 
   

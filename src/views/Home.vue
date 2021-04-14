@@ -20,7 +20,7 @@
           </div>
         </div>
         <div id="startButton">
-          <ion-button color="primary" href="/characterCreation">Begin Journey</ion-button>
+          <ion-button color="primary" @click="clearLocal()">Begin Journey</ion-button>
         </div>
         <!-- <div id="quitButton"> -->
           <!--these buttons will most likely have to call script that initiates a request to the backend as well as routes to the correct page-->
