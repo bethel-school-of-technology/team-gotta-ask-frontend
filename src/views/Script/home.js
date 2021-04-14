@@ -19,6 +19,7 @@ export default defineComponent({
     methods: {
         clearLocal(){
             localStorage.removeItem('playerId');
+            localStorage.setItem('pageId', 1);
             console.log('playerId');
             window.location.href = '/characterCreation';
         }

@@ -23,6 +23,7 @@
             <ion-item>{{ player.Name }}</ion-item>
             <ion-item>HP: {{ player.Hp }}</ion-item>
             <ion-item>Atk: {{ player.Attack }}</ion-item>
+            <ion-item>ID: {{ player.PageId }}</ion-item>
           </ion-list>
         </ion-list>
         <div id="actionButtons">
@@ -33,20 +34,20 @@
         </div>
       </div>
       <div>
-        <ion-button id="continue" color="primary">Continue</ion-button>
+        <ion-button id="continue" color="primary" @click= 'updatePlayer(player.Hp, player.PageId, enemy.Hp)'>Continue</ion-button>
       </div>
 
   </ion-page>
 </template>
 
 <script>
-  import { fetchEnemy, fetchPlayer, attack} from './Script/actionPage.js'
+  import { fetchEnemy, fetchPlayer, attack, updatePlayer} from './Script/actionPage.js'
   export default {
     props: ['playerId'],
     name: 'actionPage',
     data() {
       return {
-        player: {},
+        player:{},
         enemy: {}
       };
     },
@@ -57,7 +58,8 @@
     methods: {
       fetchPlayer,
       fetchEnemy,
-      attack
+      attack,
+      updatePlayer
     },
   }
 </script>
