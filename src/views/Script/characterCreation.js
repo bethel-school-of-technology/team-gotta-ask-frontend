@@ -26,6 +26,7 @@ import axios from "axios";
   }
 
   export async function checkNumbers(){
+    
     var numbersInput = parseInt(document.getElementById("hpInput").value) + parseInt(document.getElementById("attackInput").value);
 
     if ( numbersInput != 10) {
@@ -34,7 +35,7 @@ import axios from "axios";
     else {
       var name = document.getElementById('customName').value;
       var hp = 3 * (document.getElementById('hpInput').value) + 20;
-      var attack = 2 * (document.getElementById('attackInput').value) + 5;
+      var attack = 2 * (document.getElementById('attackInput').value) + 10;
       var pageId = 1;
   
       axios

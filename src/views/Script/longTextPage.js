@@ -5,7 +5,9 @@ import {
     IonTitle,
     IonToolbar,
   } from "@ionic/vue";
-  import { defineComponent } from "vue";
+import axios from "axios";
+import { server } from '../../helper.js';
+import { defineComponent } from "vue";
   
   export default defineComponent({
     name: "longTextPage",
@@ -16,4 +18,29 @@ import {
       IonTitle,
       IonToolbar,
     },
+
+    data() {
+      return {
+        text: {}
+      }
+    },
+
+    created(){
+      this.getText();
+    },
+
+    methods: {
+      getText() {
+        var hope = this;
+        let pageId = localStorage.getItem('pageId');
+        axios
+          .get(`${server.baseURL}/longText/${pageId}`) //hardcoded "goblin" for time being
+          .then(data => (
+            hope.text.title = data.data.title,
+            hope.text.body = data.data.body,
+            hope.text.pageId = data.data.pageId
+          ));
+      }
+    }
+
   });
