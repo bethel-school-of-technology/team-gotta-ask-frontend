@@ -10,6 +10,11 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'App',
+  data() {
+    return {
+      playerId: 1
+    }
+  },
   components: {
     IonApp,
     IonRouterOutlet
