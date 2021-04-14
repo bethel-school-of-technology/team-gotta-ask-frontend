@@ -19,7 +19,7 @@
             {{ text.body }}
           </p>
           <div id="continueButton">
-            <ion-button id="continue" color="primary" href="/actionPage">Continue</ion-button>
+            <ion-button id="continue" color="primary" @click="continueButton()">Continue</ion-button>
           </div>
         </div>
       </div>

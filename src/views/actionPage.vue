@@ -34,7 +34,7 @@
         </div>
       </div>
       <div>
-        <ion-button id="continue" color="primary" @click= 'updatePlayer(player.Hp, player.PageId)'>Continue</ion-button>
+        <ion-button id="continue" color="primary" @click= 'updatePlayer(player.Hp, player.PageId, enemy.Hp)'>Continue</ion-button>
       </div>
 
   </ion-page>
