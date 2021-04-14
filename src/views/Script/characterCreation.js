@@ -29,7 +29,7 @@ import axios from "axios";
     var numbersInput = parseInt(document.getElementById("hpInput").value) + parseInt(document.getElementById("attackInput").value);
 
     if ( numbersInput != 10) {
-      alert("more than 10 points, please adjust values and try again")
+      alert("more or less than 10 points, please adjust values and try again")
     }
     else {
       var name = document.getElementById('customName').value;
