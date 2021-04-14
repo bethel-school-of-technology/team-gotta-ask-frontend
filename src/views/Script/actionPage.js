@@ -76,6 +76,8 @@ import {
     console.log(playerHealth[0]);
     this.player.Hp = playerHealth[0];
     this.log2Text = playerHealth[1];
+
+   //console.log(this.playerId);
   }
 
   export function fetchEnemy() {
@@ -87,6 +89,7 @@ import {
         hope.enemy.Hp = data.data.hp,
         hope.enemy.Attack = data.data.attack
       ));
+      //console.log(this.varUgh.playerId);
   }
 
   

@@ -6,16 +6,6 @@
       </ion-toolbar>
     </ion-header>
 
-<<<<<<< HEAD
-    <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Combat!</ion-title>
-        </ion-toolbar>
-      </ion-header>
-
-=======
->>>>>>> dev
       <div id="container">
         <div id="actionText">
           <p>
@@ -42,6 +32,9 @@
           <ion-button class="aButton" color="success">Heal</ion-button>
         </div>
       </div>
+      <div>
+        <ion-button id="continue" color="primary">Continue</ion-button>
+      </div>
 
   </ion-page>
 </template>
@@ -49,6 +42,8 @@
 <script>
   import { fetchEnemy, fetchPlayer, attack} from './Script/actionPage.js'
   export default {
+    props: ['playerId'],
+    name: 'actionPage',
     data() {
       return {
         player: {},
@@ -63,7 +58,7 @@
       fetchPlayer,
       fetchEnemy,
       attack
-    }
+    },
   }
 </script>
 

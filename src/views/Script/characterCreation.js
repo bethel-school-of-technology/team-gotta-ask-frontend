@@ -31,7 +31,6 @@ import axios from "axios";
     var name = document.getElementById('customName').value;
     var hp = document.getElementById('hpInput').value;
     var attack = document.getElementById('attackInput').value;
-    console.log(id, name, hp, attack);
 
     axios
       .post (
@@ -52,18 +51,17 @@ import axios from "axios";
 
   export function checkNumbers(){
     var numbersInput = parseInt(document.getElementById("hpInput").value) + parseInt(document.getElementById("attackInput").value);
-    console.log("does my code know how to add? : " + numbersInput);
 
     if ( numbersInput > 10) {
       alert("more than 10 points, please adjust values and try again")
     }
     else {
-      //randomIdGenerator();
-      var x = randomIdGenerator();
-      console.log(x);
-      this.playerId = x;
-      postPlayer(x);
-      window.location.href = '/longTextPage'
+      var tempId= randomIdGenerator();
+      console.log('1st' + this.playerId);
+      this.playerId = tempId;
+      console.log('2nd' + this.playerId);
+      postPlayer(tempId);
+      //window.location.href = '/longTextPage'
       return this.playerId;
     }
   }

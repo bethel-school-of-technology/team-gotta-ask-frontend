@@ -51,26 +51,23 @@
   </ion-page>
 </template>
 
-<script>  
+<script>
   import {checkNumbers, postPlayer, randomIdGenerator} from "./Script/characterCreation.js";
-  //import { actionPage } from "./actionPage.vue";
+  //import { ActionPage } from "./actionPage.vue";
   //import { longTextPage } from "./longTextPage.vue";
   
   export default {
+    name: 'characterCreation',
     data() {
       return {
-        playerId: {}
+        playerId: 1
       }
     },
     methods: {
       checkNumbers,
       postPlayer,
       randomIdGenerator
-    }
-    //components: {
-    //  actionPage,
-    //  longTextPage
-    //}
+    },
   }
 </script>
 <style src="./CSS/characterCreation.css" scoped></style>
