@@ -52,7 +52,7 @@
 </template>
 
 <script>
-  import {checkNumbers, postPlayer, randomIdGenerator} from "./Script/characterCreation.js";
+  import {checkNumbers, postPlayer} from "./Script/characterCreation.js";
   //import { ActionPage } from "./actionPage.vue";
   //import { longTextPage } from "./longTextPage.vue";
   
@@ -65,8 +65,7 @@
     },
     methods: {
       checkNumbers,
-      postPlayer,
-      randomIdGenerator
+      postPlayer
     }
   }
 </script>
