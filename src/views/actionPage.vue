@@ -40,29 +40,7 @@
   </ion-page>
 </template>
 
-<script>
-  import { fetchEnemy, fetchPlayer, attack, updatePlayer} from './Script/actionPage.js'
-  export default {
-    props: ['playerId'],
-    name: 'actionPage',
-    data() {
-      return {
-        player:{},
-        enemy: {}
-      };
-    },
-    created() {
-      this.fetchPlayer();
-      this.fetchEnemy();
-    },
-    methods: {
-      fetchPlayer,
-      fetchEnemy,
-      attack,
-      updatePlayer
-    },
-  }
-</script>
+<script src="./Script/actionPage.js"></script>
 
 
 <style src="./CSS/actionPage.css" scoped></style>
