@@ -24,10 +24,11 @@ import { server } from "../../helper.js";
 import axios from "axios";
 
 
-function diceRoll(){
-  let sides = 10;
-  var randomNumber = Math.floor(Math.random() * sides) + 1;
-  return randomNumber;
+function diceRoll() {
+    let sides = 10;
+    var randomNumber = Math.floor(Math.random() * sides) + 1;
+    console.log("Dice roll: " + randomNumber);
+    return randomNumber;
 }
 
 
@@ -75,44 +76,44 @@ export function updatePlayer(hp, id, eHp) {
 }
 
 function playerAttack(Attack, Hp, Name) {
-  let newHp;
-  let text;
-  if(diceRoll() >= 7) {
-      if (Hp - Attack <= 0) {
-          newHp = 0;
-          text = "You did " + Hp + " damage! " + Name + " defeated!";
-      } else {
-          newHp = Hp - Attack;
-          //console.log(newHp);
-          text = "You did " + Attack + " damage!";
-      }
-  }
-  else {
-    text = "You missed!";
-    newHp = Hp;
-  }
-  return [newHp, text];
+    let newHp;
+    let text;
+    if (diceRoll() >= 7) {
+        if (Hp - Attack <= 0) {
+            newHp = 0;
+            text = "You did " + Hp + " damage! " + Name + " defeated!";
+        } else {
+            newHp = Hp - Attack;
+            //console.log(newHp);
+            text = "You did " + Attack + " damage!";
+        }
+    } else {
+        text = "You missed!";
+        newHp = Hp;
+    }
+    console.log(text);
+    return [newHp, text];
 }
 
 function enemyAttack(Attack, Hp, Name) {
-  let newHp;
-  let text;
-  if(diceRoll() >= 5) {
-    if (Hp - Attack <= 0) {
-        newHp = 0;
-        text = "... aww this must be death ...";
-        window.location.href = "/gameOverPage";
-        // Delete player by id
+    let newHp;
+    let text;
+    if (diceRoll() >= 5) {
+        if (Hp - Attack <= 0) {
+            newHp = 0;
+            text = "... aww this must be death ...";
+            window.location.href = "/gameOverPage";
+            // Delete player by id
+        } else {
+            newHp = Hp - Attack;
+            text = Name + " attacks for " + Attack + " damage!";
+        }
     } else {
-        newHp = Hp - Attack;
-        text = Name + " attacks for " + Attack + " damage!";
+        text = Name + " missed!";
+        newHp = Hp;
     }
-  }
-  else {
-    text = Name + " missed!";
-    newHp = Hp;
-  }
-  return [newHp, text];
+    console.log(text);
+    return [newHp, text];
 }
 
 export function attack(eHp, eAttack, eName, pHp, pAttack) {
