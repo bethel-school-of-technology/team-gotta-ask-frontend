@@ -23,6 +23,14 @@ export default defineComponent({
 import { server } from "../../helper.js";
 import axios from "axios";
 
+
+function diceRoll(){
+  let sides = 10;
+  var randomNumber = Math.floor(Math.random() * sides) + 1;
+  return randomNumber;
+}
+
+
 export function fetchPlayer() {
     var hope = this;
     let playerId = localStorage.getItem("playerId");
@@ -67,22 +75,29 @@ export function updatePlayer(hp, id, eHp) {
 }
 
 function playerAttack(Attack, Hp, Name) {
-    let newHp;
-    let text;
-    if (Hp - Attack <= 0) {
-        newHp = 0;
-        text = "You did " + Hp + " damage! " + Name + " defeated!";
-    } else {
-        newHp = Hp - Attack;
-        //console.log(newHp);
-        text = "You did " + Attack + " damage!";
-    }
-    return [newHp, text];
+  let newHp;
+  let text;
+  if(diceRoll() >= 7) {
+      if (Hp - Attack <= 0) {
+          newHp = 0;
+          text = "You did " + Hp + " damage! " + Name + " defeated!";
+      } else {
+          newHp = Hp - Attack;
+          //console.log(newHp);
+          text = "You did " + Attack + " damage!";
+      }
+  }
+  else {
+    text = "You missed!";
+    newHp = Hp;
+  }
+  return [newHp, text];
 }
 
 function enemyAttack(Attack, Hp, Name) {
-    let newHp;
-    let text;
+  let newHp;
+  let text;
+  if(diceRoll() >= 5) {
     if (Hp - Attack <= 0) {
         newHp = 0;
         text = "... aww this must be death ...";
@@ -92,7 +107,12 @@ function enemyAttack(Attack, Hp, Name) {
         newHp = Hp - Attack;
         text = Name + " attacks for " + Attack + " damage!";
     }
-    return [newHp, text];
+  }
+  else {
+    text = Name + " missed!";
+    newHp = Hp;
+  }
+  return [newHp, text];
 }
 
 export function attack(eHp, eAttack, eName, pHp, pAttack) {
