@@ -23,15 +23,6 @@ export default defineComponent({
 import { server } from "../../helper.js";
 import axios from "axios";
 
-
-function diceRoll() {
-    let sides = 10;
-    var randomNumber = Math.floor(Math.random() * sides) + 1;
-    console.log("Dice roll: " + randomNumber);
-    return randomNumber;
-}
-
-
 export function fetchPlayer() {
     var hope = this;
     let playerId = localStorage.getItem("playerId");
@@ -53,7 +44,6 @@ export function updatePlayer(hp, id, eHp) {
     let pageCount = id;
 
     if ((eHp == 0)) {
-        //localStorage.setItem('pageId', pageCount);
         pageCount++;
         localStorage.setItem("pageId", pageCount);
         console.log(localStorage.getItem("pageId"));
@@ -74,61 +64,42 @@ export function updatePlayer(hp, id, eHp) {
         alert("If you were allowed to run we would give you a button.")
     }
 }
-
-function playerAttack(Attack, Hp, Name) {
+export async function attack(eHp, eAttack, eName, pHp, pAttack) {
+    // Player attacking
     let newHp;
     let text;
-    if (diceRoll() >= 7) {
-        if (Hp - Attack <= 0) {
+    let roll = Math.floor(Math.random() * 10) + 1;
+    if (roll >= 7) {
+        if (eHp - pAttack <= 0) {
             newHp = 0;
-            text = "You did " + Hp + " damage! " + Name + " defeated!";
+            text = "You did " + eHp + " damage! " + eName + " defeated!";
         } else {
-            newHp = Hp - Attack;
-            //console.log(newHp);
-            text = "You did " + Attack + " damage!";
+            newHp = eHp - pAttack;
+            text = "You did " + pAttack + " damage!";
         }
     } else {
         text = "You missed!";
-        newHp = Hp;
+        newHp = eHp;
     }
-    console.log(text);
-    return [newHp, text];
-}
+    this.enemy.Hp = newHp;
+    this.logText = text;
+    // Player attack ends
+    // Enemy attacking
 
-function enemyAttack(Attack, Hp, Name) {
-    let newHp;
-    let text;
-    if (diceRoll() >= 5) {
-        if (Hp - Attack <= 0) {
-            newHp = 0;
-            text = "... aww this must be death ...";
-            window.location.href = "/gameOverPage";
-            // Delete player by id
-        } else {
-            newHp = Hp - Attack;
-            text = Name + " attacks for " + Attack + " damage!";
-        }
+  if (roll >= 5) {
+    if (pHp - eAttack <= 0) {
+        this.player.Hp = 0;
+        this.log2Text = "... aww this must be death ...";
+        window.location.href = "/gameOverPage";
+        // Delete player by id
     } else {
-        text = Name + " missed!";
-        newHp = Hp;
-    }
-    console.log(text);
-    return [newHp, text];
-}
-
-export function attack(eHp, eAttack, eName, pHp, pAttack) {
-    let enemyHealth = playerAttack(pAttack, eHp, eName);
-    console.log(enemyHealth[0]);
-    this.enemy.Hp = enemyHealth[0];
-    this.logText = enemyHealth[1];
-    if (eHp - pAttack > 0) {
-        let playerHealth = enemyAttack(eAttack, pHp, eName);
-        console.log(playerHealth[0]);
-        this.player.Hp = playerHealth[0];
-        this.log2Text = playerHealth[1];
-    } else {
-        this.log2Text = "";
-    }
+        this.player.Hp = pHp - eAttack;
+        this.log2Text = eName + " attacks for " + eAttack + " damage!";
+      } 
+  } else {
+      this.log2Text = eName + " missed!";
+      this.player.Hp = pHp;
+  }
 }
 
 export function fetchEnemy() {
