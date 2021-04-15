@@ -34,7 +34,7 @@ import axios from "axios";
     }
     else {
       var name = document.getElementById('customName').value;
-      var hp = 3 * (document.getElementById('hpInput').value) + 20;
+      var hp = 4 * (document.getElementById('hpInput').value) + 20;
       var attack = 2 * (document.getElementById('attackInput').value) + 10;
       var pageId = 1;
   
