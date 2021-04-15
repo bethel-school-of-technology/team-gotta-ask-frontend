@@ -38,9 +38,17 @@
 
         <div class="ion-text-center" id="attackContainer">
           <ion-item>
-            <ion-label id="attackLabel">ATTACK: </ion-label>
+            <ion-label id="attackLabel">Attack: </ion-label>
             <ion-input id="attackInput" placeholder="1-10"></ion-input>
           </ion-item>
+
+           <div class="ion-text-center" id="dexContainer">
+          <ion-item>
+            <ion-label id="dexLabel">Dexterity: </ion-label>
+            <ion-input id="dexInput" placeholder="1-10"></ion-input>
+          </ion-item>
+        </div>
+
         </div>
 
         <div id="continue">
@@ -53,8 +61,6 @@
 
 <script>
   import {checkNumbers} from "./Script/characterCreation.js";
-  //import { ActionPage } from "./actionPage.vue";
-  //import { longTextPage } from "./longTextPage.vue";
   
   export default {
     name: 'characterCreation',

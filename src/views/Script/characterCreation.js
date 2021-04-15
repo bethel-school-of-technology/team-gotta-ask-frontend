@@ -27,15 +27,21 @@ import axios from "axios";
 
   export async function checkNumbers(){
     
-    var numbersInput = parseInt(document.getElementById("hpInput").value) + parseInt(document.getElementById("attackInput").value);
+    var numbersInput = parseInt(document.getElementById("hpInput").value)
+     + parseInt(document.getElementById("attackInput").value)
+     + parseInt(document.getElementById('dexInput').value);
 
     if ( numbersInput != 10) {
       alert("you need to distribute exactly 10 points, please adjust values and try again")
     }
     else {
       var name = document.getElementById('customName').value;
-      var hp = 4 * (document.getElementById('hpInput').value) + 20;
-      var attack = 2 * (document.getElementById('attackInput').value) + 10;
+      var hp = 5 * (document.getElementById('hpInput').value) + 20;
+      var attack = 2 * (document.getElementById('attackInput').value) + 5;
+      let dex = 5 * (document.getElementById('dexInput').value);
+      localStorage.setItem('dex', dex);
+      console.log("variable: " + dex);
+      console.log("local store: " + localStorage.getItem('dex'));
       var pageId = 1;
   
       axios

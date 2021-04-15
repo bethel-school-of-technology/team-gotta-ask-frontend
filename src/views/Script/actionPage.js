@@ -78,8 +78,11 @@ export default defineComponent({
         playerAttack(Attack, Hp, Name) {
             let newHp;
             let text;
-            let playerRoll = Math.floor(Math.random() * 10) + 1;
-            if (playerRoll >= 5) {
+            let dex = parseInt(localStorage.getItem('dex')) + 10;
+          console.log(dex);
+            let playerRoll = Math.floor(Math.random() * dex) + 1;
+
+            if (playerRoll >= 6) {
                 if (Hp - Attack <= 0) {
                     newHp = 0;
                     text = "You did " + Hp + " damage! " + Name + " defeated!";
@@ -99,8 +102,9 @@ export default defineComponent({
         enemyAttack(Attack, Hp, Name) {
             let newHp;
             let text;
-            let enemyRoll = Math.floor(Math.random() * 10) + 1;
-            if (enemyRoll >= 7) {
+            let dex = (localStorage.getItem('dex')/5);
+            let enemyRoll = Math.floor(Math.random() * 20) + 1;
+            if (enemyRoll >= 10 + dex) {
                 if (Hp - Attack <= 0) {
                     newHp = 0;
                     text = "... aww this must be death ...";
