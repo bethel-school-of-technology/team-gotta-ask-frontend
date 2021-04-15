@@ -23,7 +23,6 @@
             <ion-item>{{ player.Name }}</ion-item>
             <ion-item>HP: {{ player.Hp }}</ion-item>
             <ion-item>Atk: {{ player.Attack }}</ion-item>
-            <ion-item>ID: {{ player.PageId }}</ion-item>
           </ion-list>
         </ion-list>
         <div id="actionButtons">
