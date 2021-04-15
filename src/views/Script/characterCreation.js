@@ -36,8 +36,8 @@ import axios from "axios";
     }
     else {
       var name = document.getElementById('customName').value;
-      var hp = 5 * (document.getElementById('hpInput').value) + 20;
-      var attack = 2 * (document.getElementById('attackInput').value) + 5;
+      var hp = 13 * (document.getElementById('hpInput').value) + 7;
+      var attack = 3 * (document.getElementById('attackInput').value) + 5;
       let dex = 5 * (document.getElementById('dexInput').value);
       localStorage.setItem('dex', dex);
       console.log("variable: " + dex);
