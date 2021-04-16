@@ -2,14 +2,14 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Custom Character</ion-title>
+        <ion-title>{{ title }}</ion-title>
       </ion-toolbar>
     </ion-header>
 
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Character Creation</ion-title>
+          <ion-title size="large">{{ title }}</ion-title>
         </ion-toolbar>
       </ion-header>
 
@@ -21,12 +21,11 @@
         <br>
 
         <div class="ion-text-center" id="characterName">
-          <ion-label>Character Name</ion-label>
-          <ion-input id="customName" placeholder="Joe Blow"></ion-input>
+          <ion-input id="customName" :placeholder = charName></ion-input>
         </div>
 
         <div class="ion-text-center" id="pointsAvailable">
-          <p>10 available points</p>
+          <p>{{ points }} available points</p>
         </div>
   
         <div class="ion-text-center" id="hpContainer">
@@ -38,9 +37,17 @@
 
         <div class="ion-text-center" id="attackContainer">
           <ion-item>
-            <ion-label id="attackLabel">ATTACK: </ion-label>
+            <ion-label id="attackLabel">Attack: </ion-label>
             <ion-input id="attackInput" placeholder="1-10"></ion-input>
           </ion-item>
+
+           <div class="ion-text-center" id="dexContainer">
+          <ion-item>
+            <ion-label id="dexLabel">Dexterity: </ion-label>
+            <ion-input id="dexInput" placeholder="1-10"></ion-input>
+          </ion-item>
+        </div>
+
         </div>
 
         <div id="continue">
@@ -51,21 +58,5 @@
   </ion-page>
 </template>
 
-<script>
-  import {checkNumbers} from "./Script/characterCreation.js";
-  //import { ActionPage } from "./actionPage.vue";
-  //import { longTextPage } from "./longTextPage.vue";
-  
-  export default {
-    name: 'characterCreation',
-    data() {
-      return {
-        playerId: 1
-      }
-    },
-    methods: {
-      checkNumbers
-    }
-  }
-</script>
+<script src="./Script/characterCreation.js"></script>
 <style src="./CSS/characterCreation.css" scoped></style>

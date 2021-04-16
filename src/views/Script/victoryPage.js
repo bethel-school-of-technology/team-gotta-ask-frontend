@@ -18,17 +18,18 @@ export default defineComponent({
         IonTitle,
         IonToolbar,
     },
-
-    created() {
-
-    },
-
     methods: {
         deletePlayer() {
             let playerId = localStorage.getItem('playerId');
             axios
                 .delete(`${server.baseURL}/player/delete/${playerId}`);
-            window.location.href = "/home"
+            window.location.href = "/home";
+        },
+        nextLevel() {
+            let level = localStorage.getItem('floorLevel');
+            level++; 
+            localStorage.setItem('floorLevel', level);
+            window.location.href = "/charactercreation";
         }
-    }
+    },
 });
