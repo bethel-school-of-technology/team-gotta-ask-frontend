@@ -82,22 +82,23 @@ export default defineComponent({
             let dex = parseInt(localStorage.getItem('dex')) + 10;
             console.log(dex);
             let playerRoll = Math.floor(Math.random() * dex) + 1;
+            let playerAttack = Math.floor(Math.random() * Attack) + 1
 
             if (playerRoll >= 6) {
-                if (Hp - Attack <= 0) {
+                if (Hp - playerAttack <= 0) {
                     newHp = 0;
                     text = "You did " + Hp + " damage! " + Name + " defeated!";
                 } else {
-                    newHp = Hp - Attack;
+                    newHp = Hp - playerAttack;
                     //console.log(newHp);
-                    text = "You did " + Attack + " damage!";
+                    text = "You did " + playerAttack + " damage!";
                 }
             } else {
                 text = "You missed!";
                 newHp = Hp;
             }
             console.log(text + " You rolled: " + playerRoll);
-            return [newHp, text, playerRoll];
+            return [newHp, text, playerRoll, playerAttack];
         },
 
         enemyAttack(Attack, Hp, Name) {
@@ -105,15 +106,16 @@ export default defineComponent({
             let text;
             let dex = (localStorage.getItem('dex') / 5);
             let enemyRoll = Math.floor(Math.random() * 20) + 1;
+            let enemyAttack = Math.floor(Math.random() * Attack) + 1
             if (enemyRoll >= 10 + dex) {
-                if (Hp - Attack <= 0) {
+                if (Hp - enemyAttack <= 0) {
                     newHp = 0;
                     text = "... aww this must be death ...";
                     window.location.href = "/gameOverPage";
                     // Delete player by id
                 } else {
-                    newHp = Hp - Attack;
-                    text = Name + " attacks for " + Attack + " damage!";
+                    newHp = Hp - enemyAttack;
+                    text = Name + " attacks for " + enemyAttack + " damage!";
                 }
             } else {
                 text = Name + " missed!";
@@ -128,7 +130,7 @@ export default defineComponent({
             console.log(enemyHealth[0]);
             this.enemy.Hp = enemyHealth[0];
             this.logText = enemyHealth[1];
-            if (eHp - pAttack > 0 || enemyHealth[2] < 5) {
+            if (eHp - enemyHealth[3] > 0 || enemyHealth[2] < 5) {
                 let playerHealth = this.enemyAttack(eAttack, pHp, eName);
                 console.log(playerHealth[0]);
                 this.player.Hp = playerHealth[0];
