@@ -29,8 +29,9 @@
       </div>
 
       <div id="buttonDiv">
-        <ion-button id="button" color="primary" @click="deletePlayer()">Play Again</ion-button>
+        
         <ion-button id="button" color="primary" @click="nextLevel()">Keep Playing</ion-button>
+        <ion-button id="button" color="danger" @click="deletePlayer()">Quit</ion-button>
       </div>
 
     </ion-content>
