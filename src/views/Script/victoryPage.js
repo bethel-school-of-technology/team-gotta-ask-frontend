@@ -18,11 +18,6 @@ export default defineComponent({
         IonTitle,
         IonToolbar,
     },
-
-    created() {
-
-    },
-
     methods: {
         deletePlayer() {
             let playerId = localStorage.getItem('playerId');
