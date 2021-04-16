@@ -30,6 +30,8 @@ export default defineComponent({
     created() {
         this.fetchPlayer();
         this.fetchEnemy();
+        localStorage.setItem('healBool', 0);
+        console.log(localStorage.getItem('healBool'));
     },
     methods: {
         fetchPlayer() {
@@ -74,25 +76,37 @@ export default defineComponent({
             }
         },
 
+        heal() {
+            localStorage.setItem('healBool', 1)
+        },
+
         playerAttack(Attack, Hp, Name) {
             let newHp;
             let text;
+            let healBool = localStorage.getItem('healBool');
             let dex = parseInt(localStorage.getItem('dex')) + 10;
             console.log(dex);
             let playerRoll = Math.floor(Math.random() * dex) + 1;
 
-            if (playerRoll >= 6) {
-                if (Hp - Attack <= 0) {
-                    newHp = 0;
-                    text = "You did " + Hp + " damage! " + Name + " defeated!";
+            if (healBool == 0) {
+                if (playerRoll >= 6) {
+                    if (Hp - Attack <= 0) {
+                        newHp = 0;
+                        text = "You did " + Hp + " damage! " + Name + " defeated!";
+                    } else {
+                        newHp = Hp - Attack;
+                        //console.log(newHp);
+                        text = "You did " + Attack + " damage!";
+                    }
                 } else {
-                    newHp = Hp - Attack;
-                    //console.log(newHp);
-                    text = "You did " + Attack + " damage!";
+                    text = "You missed!";
+                    newHp = Hp;
                 }
-            } else {
-                text = "You missed!";
+            }
+            else {
+                text = 'You healed...';
                 newHp = Hp;
+                localStorage.setItem('healBool', 0);
             }
             console.log(text + " You rolled: " + playerRoll);
             return [newHp, text, playerRoll];
@@ -101,31 +115,58 @@ export default defineComponent({
         enemyAttack(Attack, Hp, Name) {
             let newHp;
             let text;
-            let dex = (localStorage.getItem('dex')/5);
+            let healBool = localStorage.getItem('healBool');
+            let dex = (localStorage.getItem('dex') / 5);
             let enemyRoll = Math.floor(Math.random() * 20) + 1;
-            if (enemyRoll >= 10 + dex) {
-                if (Hp - Attack <= 0) {
-                    newHp = 0;
-                    text = "... aww this must be death ...";
-                    window.location.href = "/gameOverPage";
-                    // Delete player by id
+            if (healBool == 0) {
+                if (enemyRoll >= 10 + dex) {
+                    if (Hp - Attack <= 0) {
+                        newHp = 0;
+                        text = "... aww this must be death ...";
+                        window.location.href = "/gameOverPage";
+                        // Delete player by id
+                    } else {
+                        newHp = Hp - Attack;
+                        text = Name + " attacks for " + Attack + " damage!";
+                    }
                 } else {
-                    newHp = Hp - Attack;
-                    text = Name + " attacks for " + Attack + " damage!";
+                    text = Name + " missed!";
+                    newHp = Hp;
                 }
-            } else {
-                text = Name + " missed!";
-                newHp = Hp;
+            }
+            // if bool is true then :
+            else {
+                if (enemyRoll >= 10 + dex) {
+                    if (Hp - Attack <= 0) {
+                        newHp = 0;
+                        text = "... aww this must be death ...";
+                        window.location.href = "/gameOverPage";
+                        // Delete player by id
+                        // if player does not die then:
+                    } else {
+                        Hp = Hp + 20;
+                        newHp = Hp -Attack;
+                        console.log('New Hp: '+newHp);
+                        text = Name + " attacks for " + Attack + " damage!";
+                        localStorage.setItem('healBool', 0);
+                        console.log('bool after set in enemy: ' + localStorage.getItem('healBool'));
+                    }
+                } else {
+                    text = Name + " missed!";
+                    newHp = Hp;
+                }
             }
             console.log(text + " Enemy rolled: " + enemyRoll);
             return [newHp, text];
         },
 
         async attack(eHp, eAttack, eName, pHp, pAttack) {
+
             let enemyHealth = this.playerAttack(pAttack, eHp, eName);
             console.log(enemyHealth[0]);
             this.enemy.Hp = enemyHealth[0];
             this.logText = enemyHealth[1];
+
             if (eHp - pAttack > 0 || enemyHealth[2] < 5) {
                 let playerHealth = this.enemyAttack(eAttack, pHp, eName);
                 console.log(playerHealth[0]);
