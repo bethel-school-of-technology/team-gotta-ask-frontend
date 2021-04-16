@@ -35,15 +35,17 @@ export default defineComponent({
         fetchPlayer() {
             var hope = this;
             let playerId = localStorage.getItem("playerId");
-
+            console.log(playerId);
             axios
-                .get(`${server.baseURL}/player/${playerId}`) //hardcoded for time being
+                .get(`${server.baseURL}/player/${playerId}`)
                 .then(
                     (data) => (
                         (hope.player.Name = data.data.name),
                         (hope.player.Hp = data.data.hp),
                         (hope.player.Attack = data.data.attack),
-                        (hope.player.PageId = data.data.pageId)
+                        (hope.player.Dex = data.data.dex),
+                        (hope.player.PageId = data.data.pageId),
+                        (hope.player.floorLevel = data.data.floorLevel)
                     )
                 );
         },
@@ -101,7 +103,7 @@ export default defineComponent({
         enemyAttack(Attack, Hp, Name) {
             let newHp;
             let text;
-            let dex = (localStorage.getItem('dex')/5);
+            let dex = (localStorage.getItem('dex') / 5);
             let enemyRoll = Math.floor(Math.random() * 20) + 1;
             if (enemyRoll >= 10 + dex) {
                 if (Hp - Attack <= 0) {
@@ -141,7 +143,7 @@ export default defineComponent({
             var hope = this;
             var pageId = localStorage.getItem("pageId");
             axios
-                .get(`${server.baseURL}/enemy/${pageId}`) //hardcoded "goblin" for time being
+                .get(`${server.baseURL}/enemy/${pageId}`)
                 .then(
                     (data) => (
                         (hope.enemy.Name = data.data.name),
