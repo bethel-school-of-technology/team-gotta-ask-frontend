@@ -34,7 +34,7 @@ export default defineComponent({
             var hope = this;
             let pageId = localStorage.getItem('pageId');
             axios
-                .get(`${server.baseURL}/longText/${pageId}`) //hardcoded "goblin" for time being
+                .get(`${server.baseURL}/longText/${pageId}`)
                 .then(data => (
                     hope.text.title = data.data.title,
                     hope.text.body = data.data.body,
