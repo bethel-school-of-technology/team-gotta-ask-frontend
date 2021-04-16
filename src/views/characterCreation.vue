@@ -59,19 +59,5 @@
   </ion-page>
 </template>
 
-<script>
-  import {checkNumbers} from "./Script/characterCreation.js";
-  
-  export default {
-    name: 'characterCreation',
-    data() {
-      return {
-        playerId: 1
-      }
-    },
-    methods: {
-      checkNumbers
-    }
-  }
-</script>
+<script src="./Script/characterCreation.js"></script>
 <style src="./CSS/characterCreation.css" scoped></style>

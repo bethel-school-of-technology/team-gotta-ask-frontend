@@ -17,8 +17,6 @@
           </p>
         </div>
         <ion-list id="statBar" lines="none">
-          <!--  icon is not currently rendering, will fix later -->
-          <!-- <ion-icon name="person"></ion-icon> -->
           <ion-list id="stats">
             <ion-item>{{ player.Name }}</ion-item>
             <ion-item>HP: {{ player.Hp }}</ion-item>
@@ -26,7 +24,6 @@
           </ion-list>
         </ion-list>
         <div id="actionButtons">
-          <!--  -->
           <ion-button @click= "attack(enemy.Hp, enemy.Attack, enemy.Name, player.Hp, player.Attack)" class="aButton" color="danger">Attack</ion-button>
           <ion-button class="aButton" color="medium">Defend</ion-button>
           <ion-button class="aButton" color="success">Heal</ion-button>
