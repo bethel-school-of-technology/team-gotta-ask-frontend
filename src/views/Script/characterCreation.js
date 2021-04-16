@@ -44,6 +44,7 @@ export default defineComponent({
           var attack = 3 * (document.getElementById('attackInput').value) + 5;
           let dex = 5 * (document.getElementById('dexInput').value);
           localStorage.setItem('hp', hp);
+          localStorage.setItem('maxHp', hp);
           localStorage.setItem('attack', attack);
           localStorage.setItem('name', name);
           localStorage.setItem('dex', dex);

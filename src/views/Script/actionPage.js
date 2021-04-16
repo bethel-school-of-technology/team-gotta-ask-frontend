@@ -30,8 +30,6 @@ export default defineComponent({
     created() {
         this.fetchPlayer();
         this.fetchEnemy();
-        localStorage.setItem('healBool', 0);
-        console.log(localStorage.getItem('healBool'));
     },
     methods: {
         fetchPlayer() {
@@ -77,18 +75,31 @@ export default defineComponent({
         },
 
         heal() {
-            localStorage.setItem('healBool', 1)
+            let old = this.player.Attack;
+            localStorage.setItem('oldAttack', old);
+            let hp = localStorage.getItem('maxHp');
+            if( this.player.Hp + 20 > hp){
+                this.player.Hp = hp;
+                this.player.Attack = 0;
+            }
+            else {
+            this.player.Hp = this.player.Hp + 20;
+            this.player.Attack = 0;
+            }
+
+            this.attack(this.enemy.Hp, this.enemy.Attack, this.enemy.Name, this.player.Hp, this.player.Attack, old)
         },
 
-        playerAttack(Attack, Hp, Name) {
+        playerAttack(Attack, Hp, Name, old) {
+            //this.player.Attack = parseInt(localStorage.getItem('oldAttack'));
             let newHp;
             let text;
-            let healBool = localStorage.getItem('healBool');
+            //let healBool = localStorage.getItem('healBool');
             let dex = parseInt(localStorage.getItem('dex')) + 10;
             console.log(dex);
             let playerRoll = Math.floor(Math.random() * dex) + 1;
 
-            if (healBool == 0) {
+            if (Attack > 0) {
                 if (playerRoll >= 6) {
                     if (Hp - Attack <= 0) {
                         newHp = 0;
@@ -105,8 +116,10 @@ export default defineComponent({
             }
             else {
                 text = 'You healed...';
+                //this.player.Attack = parseInt(localStorage.getItem('oldAttack'));
+                this.player.Attack = old;
                 newHp = Hp;
-                localStorage.setItem('healBool', 0);
+                
             }
             console.log(text + " You rolled: " + playerRoll);
             return [newHp, text, playerRoll];
@@ -160,9 +173,9 @@ export default defineComponent({
             return [newHp, text];
         },
 
-        async attack(eHp, eAttack, eName, pHp, pAttack) {
+        async attack(eHp, eAttack, eName, pHp, pAttack, old) {
 
-            let enemyHealth = this.playerAttack(pAttack, eHp, eName);
+            let enemyHealth = this.playerAttack(pAttack, eHp, eName, old);
             console.log(enemyHealth[0]);
             this.enemy.Hp = enemyHealth[0];
             this.logText = enemyHealth[1];

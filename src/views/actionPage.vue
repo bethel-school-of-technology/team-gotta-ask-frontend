@@ -25,7 +25,7 @@
         </ion-list>
         <div id="actionButtons">
           <ion-button @click= "attack(enemy.Hp, enemy.Attack, enemy.Name, player.Hp, player.Attack)" class="aButton" color="danger">Attack</ion-button>
-          <ion-button v-on:click='heal().then(attack(enemy.Hp, enemy.Attack, enemy.Name, player.Hp, player.Attack));' class="aButton" color="success">Heal</ion-button>
+          <ion-button @click='heal()' class="aButton" color="success">Heal</ion-button>
         </div>
       </div>
       <div>
