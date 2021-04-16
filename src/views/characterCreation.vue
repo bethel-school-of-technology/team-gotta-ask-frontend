@@ -2,14 +2,14 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Custom Character</ion-title>
+        <ion-title>{{ title }}</ion-title>
       </ion-toolbar>
     </ion-header>
 
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Character Creation</ion-title>
+          <ion-title size="large">{{ title }}</ion-title>
         </ion-toolbar>
       </ion-header>
 
@@ -21,12 +21,11 @@
         <br>
 
         <div class="ion-text-center" id="characterName">
-          <ion-label>Character Name</ion-label>
-          <ion-input id="customName" placeholder="Joe Blow"></ion-input>
+          <ion-input id="customName" :placeholder = charName></ion-input>
         </div>
 
         <div class="ion-text-center" id="pointsAvailable">
-          <p>10 available points</p>
+          <p>{{ points }} available points</p>
         </div>
   
         <div class="ion-text-center" id="hpContainer">

@@ -53,7 +53,6 @@ export default defineComponent({
             let pageCount = id;
 
             if ((eHp == 0)) {
-                //localStorage.setItem('pageId', pageCount);
                 pageCount++;
                 localStorage.setItem("pageId", pageCount);
                 console.log(localStorage.getItem("pageId"));
@@ -79,7 +78,7 @@ export default defineComponent({
             let newHp;
             let text;
             let dex = parseInt(localStorage.getItem('dex')) + 10;
-          console.log(dex);
+            console.log(dex);
             let playerRoll = Math.floor(Math.random() * dex) + 1;
 
             if (playerRoll >= 6) {

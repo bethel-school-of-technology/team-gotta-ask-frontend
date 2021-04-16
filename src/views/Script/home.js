@@ -17,9 +17,10 @@ export default defineComponent({
         IonToolbar,
     },
     methods: {
-        clearLocal(){
+        makeLocal(){
             localStorage.removeItem('playerId');
             localStorage.setItem('pageId', 1);
+            localStorage.setItem('floorLevel', 1);
             console.log('playerId');
             window.location.href = '/characterCreation';
         }
