@@ -30,6 +30,7 @@ export default defineComponent({
     created() {
         this.fetchPlayer();
         this.fetchEnemy();
+        this.maxHp = localStorage.getItem('hp');
     },
     methods: {
         fetchPlayer() {
@@ -76,26 +77,57 @@ export default defineComponent({
             }
         },
 
-        playerAttack(Attack, Hp, Name) {
+        heal() {
+            let old = this.player.Attack;
+            localStorage.setItem('oldAttack', old);
+            let hp = localStorage.getItem('hp');
+            let roll = (Math.floor(Math.random() * 25) + 1) / 100;
+            console.log('roll: ' + roll);
+            let healNum = Math.ceil(hp * roll);
+            console.log('heal amount:' + healNum);
+            if (this.player.Hp + healNum > hp) {
+                this.player.Hp = hp;
+                this.player.Attack = 0;
+            }
+            else {
+                this.player.Hp = this.player.Hp + healNum;
+                this.player.Attack = 0;
+            }
+
+            this.attack(this.enemy.Hp, this.enemy.Attack, this.enemy.Name, this.player.Hp, this.player.Attack, old)
+        },
+
+        playerAttack(Attack, Hp, Name, old) {
+            //this.player.Attack = parseInt(localStorage.getItem('oldAttack'));
             let newHp;
             let text;
+            //let healBool = localStorage.getItem('healBool');
             let dex = parseInt(localStorage.getItem('dex')) + 10;
             console.log(dex);
             let playerRoll = Math.floor(Math.random() * dex) + 1;
             let playerAttack = Math.floor(Math.random() * Attack) + 1
 
-            if (playerRoll >= 6) {
-                if (Hp - playerAttack <= 0) {
-                    newHp = 0;
-                    text = "You did " + Hp + " damage! " + Name + " defeated!";
+            if (Attack > 0) {
+                if (playerRoll >= 6) {
+                    if (Hp - playerAttack <= 0) {
+                        newHp = 0;
+                        text = "You did " + Hp + " damage! " + Name + " defeated!";
+                    } else {
+                        newHp = Hp - playerAttack;
+                        //console.log(newHp);
+                        text = "You did " + playerAttack + " damage!";
+                    }
                 } else {
-                    newHp = Hp - playerAttack;
-                    //console.log(newHp);
-                    text = "You did " + playerAttack + " damage!";
+                    text = "You missed!";
+                    newHp = Hp;
                 }
-            } else {
-                text = "You missed!";
+            }
+            else {
+                text = 'You healed...';
+                //this.player.Attack = parseInt(localStorage.getItem('oldAttack'));
+                this.player.Attack = old;
                 newHp = Hp;
+
             }
             console.log(text + " You rolled: " + playerRoll);
             return [newHp, text, playerRoll, playerAttack];
@@ -105,8 +137,9 @@ export default defineComponent({
             let newHp;
             let text;
             let dex = (localStorage.getItem('dex') / 5);
-            let enemyRoll = Math.floor(Math.random() * 20) + 1;
             let enemyAttack = Math.floor(Math.random() * Attack) + 1
+            let enemyRoll = Math.floor(Math.random() * 20) + 1;
+
             if (enemyRoll >= 10 + dex) {
                 if (Hp - enemyAttack <= 0) {
                     newHp = 0;
@@ -121,12 +154,15 @@ export default defineComponent({
                 text = Name + " missed!";
                 newHp = Hp;
             }
+
+
             console.log(text + " Enemy rolled: " + enemyRoll);
             return [newHp, text];
         },
 
-        async attack(eHp, eAttack, eName, pHp, pAttack) {
-            let enemyHealth = this.playerAttack(pAttack, eHp, eName);
+        async attack(eHp, eAttack, eName, pHp, pAttack, old) {
+
+            let enemyHealth = this.playerAttack(pAttack, eHp, eName, old);
             console.log(enemyHealth[0]);
             this.enemy.Hp = enemyHealth[0];
             this.logText = enemyHealth[1];
@@ -142,17 +178,32 @@ export default defineComponent({
         },
 
         fetchEnemy() {
+            let mult = parseInt(localStorage.getItem('floorLevel'));
             var hope = this;
             var pageId = localStorage.getItem("pageId");
-            axios
-                .get(`${server.baseURL}/enemy/${pageId}`)
-                .then(
-                    (data) => (
-                        (hope.enemy.Name = data.data.name),
-                        (hope.enemy.Hp = data.data.hp),
-                        (hope.enemy.Attack = data.data.attack)
-                    )
-                );
+            if (mult > 1) {
+                let actualMult = (mult / 4) + 1;
+                axios
+                    .get(`${server.baseURL}/enemy/${pageId}`)
+                    .then(
+                        (data) => (
+                            (hope.enemy.Name = data.data.name),
+                            (hope.enemy.Hp = Math.ceil(data.data.hp * actualMult)),
+                            (hope.enemy.Attack = Math.ceil(data.data.attack * actualMult))
+                        )
+                    );
+
+            } else {
+                axios
+                    .get(`${server.baseURL}/enemy/${pageId}`)
+                    .then(
+                        (data) => (
+                            (hope.enemy.Name = data.data.name),
+                            (hope.enemy.Hp = data.data.hp),
+                            (hope.enemy.Attack = data.data.attack)
+                        )
+                    );
+            }
         }
     }
 });
