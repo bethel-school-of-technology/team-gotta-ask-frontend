@@ -30,6 +30,7 @@ export default defineComponent({
     created() {
         this.fetchPlayer();
         this.fetchEnemy();
+        this.maxHp = localStorage.getItem('hp');
     },
     methods: {
         fetchPlayer() {
@@ -79,14 +80,18 @@ export default defineComponent({
         heal() {
             let old = this.player.Attack;
             localStorage.setItem('oldAttack', old);
-            let hp = localStorage.getItem('maxHp');
-            if( this.player.Hp + 20 > hp){
+            let hp = localStorage.getItem('hp');
+            let roll = (Math.floor(Math.random() * 25) + 1) / 100;
+            console.log('roll: ' + roll);
+            let healNum = Math.ceil(hp * roll);
+            console.log('heal amount:' + healNum);
+            if (this.player.Hp + healNum > hp) {
                 this.player.Hp = hp;
                 this.player.Attack = 0;
             }
             else {
-            this.player.Hp = this.player.Hp + 20;
-            this.player.Attack = 0;
+                this.player.Hp = this.player.Hp + healNum;
+                this.player.Attack = 0;
             }
 
             this.attack(this.enemy.Hp, this.enemy.Attack, this.enemy.Name, this.player.Hp, this.player.Attack, old)
@@ -122,7 +127,7 @@ export default defineComponent({
                 //this.player.Attack = parseInt(localStorage.getItem('oldAttack'));
                 this.player.Attack = old;
                 newHp = Hp;
-                
+
             }
             console.log(text + " You rolled: " + playerRoll);
             return [newHp, text, playerRoll, playerAttack];
@@ -131,45 +136,26 @@ export default defineComponent({
         enemyAttack(Attack, Hp, Name) {
             let newHp;
             let text;
-            let healBool = localStorage.getItem('healBool');
             let dex = (localStorage.getItem('dex') / 5);
             let enemyAttack = Math.floor(Math.random() * Attack) + 1
             let enemyRoll = Math.floor(Math.random() * 20) + 1;
-            if (healBool == 0) {
-                if (enemyRoll >= 10 + dex) {
-                    if (Hp - enemyAttack <= 0) {
-                        newHp = 0;
-                        text = "... aww this must be death ...";
-                        window.location.href = "/gameOverPage";
-                        // Delete player by id
-                    } else {
-                        newHp = Hp - enemyAttack;
-                        text = Name + " attacks for " + enemyAttack + " damage!";
-                    }
+
+            if (enemyRoll >= 10 + dex) {
+                if (Hp - enemyAttack <= 0) {
+                    newHp = 0;
+                    text = "... aww this must be death ...";
+                    window.location.href = "/gameOverPage";
+                    // Delete player by id
                 } else {
-                    text = Name + " missed!";
-                    newHp = Hp;
+                    newHp = Hp - enemyAttack;
+                    text = Name + " attacks for " + enemyAttack + " damage!";
                 }
+            } else {
+                text = Name + " missed!";
+                newHp = Hp;
             }
-            else {
-                if (enemyRoll >= 10 + dex) {
-                    if (Hp - enemyAttack <= 0) {
-                        newHp = 0;
-                        text = "... aww this must be death ...";
-                        window.location.href = "/gameOverPage";
-                        // Delete player by id
-                        // if player does not die then:
-                    } else {
-                        Hp = Hp + 20;
-                        newHp = Hp - enemyAttack;
-                        console.log('New Hp: '+newHp);
-                        text = Name + " attacks for " + enemyAttack + " damage!";
-                    }
-                } else {
-                    text = Name + " missed!";
-                    newHp = Hp;
-                }
-            }
+
+
             console.log(text + " Enemy rolled: " + enemyRoll);
             return [newHp, text];
         },
@@ -192,17 +178,32 @@ export default defineComponent({
         },
 
         fetchEnemy() {
+            let mult = parseInt(localStorage.getItem('floorLevel'));
             var hope = this;
             var pageId = localStorage.getItem("pageId");
-            axios
-                .get(`${server.baseURL}/enemy/${pageId}`)
-                .then(
-                    (data) => (
-                        (hope.enemy.Name = data.data.name),
-                        (hope.enemy.Hp = data.data.hp),
-                        (hope.enemy.Attack = data.data.attack)
-                    )
-                );
+            if (mult > 1) {
+                let actualMult = (mult / 4) + 1;
+                axios
+                    .get(`${server.baseURL}/enemy/${pageId}`)
+                    .then(
+                        (data) => (
+                            (hope.enemy.Name = data.data.name),
+                            (hope.enemy.Hp = Math.ceil(data.data.hp * actualMult)),
+                            (hope.enemy.Attack = Math.ceil(data.data.attack * actualMult))
+                        )
+                    );
+
+            } else {
+                axios
+                    .get(`${server.baseURL}/enemy/${pageId}`)
+                    .then(
+                        (data) => (
+                            (hope.enemy.Name = data.data.name),
+                            (hope.enemy.Hp = data.data.hp),
+                            (hope.enemy.Attack = data.data.attack)
+                        )
+                    );
+            }
         }
     }
 });

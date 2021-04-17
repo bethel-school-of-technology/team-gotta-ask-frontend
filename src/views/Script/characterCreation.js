@@ -40,9 +40,10 @@ export default defineComponent({
                 } else {
                     var name = document.getElementById('customName').value;
                     var hp = 15 * (document.getElementById('hpInput').value) + 7;
-                    var attack = 3 * (document.getElementById('attackInput').value) + 5;
+                    var attack = 4 * (document.getElementById('attackInput').value) + 5;
                     let dex = 5 * (document.getElementById('dexInput').value);
                     localStorage.setItem('hp', hp);
+                    localStorage.setItem('maxHp', hp);
                     localStorage.setItem('attack', attack);
                     localStorage.setItem('name', name);
                     localStorage.setItem('dex', dex);
@@ -73,7 +74,7 @@ export default defineComponent({
                     alert("you need to distribute exactly " + this.points + " points, please adjust values and try again")
                 } else {
                     let hp = parseInt(localStorage.getItem('hp')) + (15 * (document.getElementById('hpInput').value));
-                    let attack = parseInt(localStorage.getItem('attack')) + (3 * (document.getElementById('attackInput').value));
+                    let attack = parseInt(localStorage.getItem('attack')) + (4 * (document.getElementById('attackInput').value));
                     let dex = parseInt(localStorage.getItem('dex')) + (5 * (document.getElementById('dexInput').value));
 
                     localStorage.setItem('hp', hp);

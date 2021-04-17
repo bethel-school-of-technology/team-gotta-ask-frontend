@@ -19,8 +19,9 @@
         <ion-list id="statBar" lines="none">
           <ion-list id="stats">
             <ion-item>{{ player.Name }}</ion-item>
-            <ion-item>HP: {{ player.Hp }}</ion-item>
+            <ion-item>HP: <br>{{ player.Hp }} / {{ maxHp }}</ion-item>
             <ion-item>Atk: {{ player.Attack }}</ion-item>
+            <ion-item>Dex: {{ player.Dex }}</ion-item>
           </ion-list>
         </ion-list>
         <div id="actionButtons">
