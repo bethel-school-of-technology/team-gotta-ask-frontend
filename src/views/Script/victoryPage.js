@@ -4,6 +4,11 @@ import {
     IonPage,
     IonTitle,
     IonToolbar,
+    IonButton,
+    IonInput,
+    IonItem,
+    IonLabel,
+    IonList
 } from "@ionic/vue";
 import axios from "axios";
 import { defineComponent } from "vue";
@@ -17,6 +22,11 @@ export default defineComponent({
         IonPage,
         IonTitle,
         IonToolbar,
+        IonButton,
+        IonInput,
+        IonItem,
+        IonLabel,
+        IonList
     },
     methods: {
         deletePlayer() {

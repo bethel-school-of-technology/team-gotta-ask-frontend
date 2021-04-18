@@ -4,6 +4,11 @@ import {
     IonPage,
     IonTitle,
     IonToolbar,
+    IonButton,
+    IonInput,
+    IonItem,
+    IonLabel,
+    IonList
 } from "@ionic/vue";
 import { defineComponent } from "vue";
 
@@ -15,6 +20,11 @@ export default defineComponent({
         IonPage,
         IonTitle,
         IonToolbar,
+        IonButton,
+        IonInput,
+        IonItem,
+        IonLabel,
+        IonList
     },
     methods: {
         makeLocal(){

@@ -4,7 +4,11 @@ import {
     IonPage,
     IonTitle,
     IonToolbar,
-    IonIcon,
+    IonButton,
+    IonInput,
+    IonItem,
+    IonLabel,
+    IonList
 } from "@ionic/vue";
 
 import { defineComponent } from "vue";
@@ -19,7 +23,11 @@ export default defineComponent({
         IonPage,
         IonTitle,
         IonToolbar,
-        IonIcon,
+        IonButton,
+        IonInput,
+        IonItem,
+        IonLabel,
+        IonList
     },
     data() {
         return {

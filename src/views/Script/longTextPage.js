@@ -4,6 +4,11 @@ import {
     IonPage,
     IonTitle,
     IonToolbar,
+    IonButton,
+    IonInput,
+    IonItem,
+    IonLabel,
+    IonList
 } from "@ionic/vue";
 import axios from "axios";
 import { server } from '../../helper.js';
@@ -17,6 +22,11 @@ export default defineComponent({
         IonPage,
         IonTitle,
         IonToolbar,
+        IonButton,
+        IonInput,
+        IonItem,
+        IonLabel,
+        IonList
     },
 
     data() {
