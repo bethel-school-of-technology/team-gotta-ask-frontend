@@ -37,6 +37,4 @@
 </template>
 
 <script src="./Script/actionPage.js"></script>
-
-
 <style src="./CSS/actionPage.css" scoped></style>
