@@ -39,6 +39,8 @@ export default defineComponent({
         this.fetchPlayer();
         this.fetchEnemy();
         this.maxHp = localStorage.getItem('hp');
+        this.log2Text = "";
+        this.logText = "";
     },
     methods: {
         fetchPlayer() {
