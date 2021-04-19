@@ -31,20 +31,20 @@
         <div class="ion-text-center" id="hpContainer">
           <ion-item>
             <ion-label id="hpLabel">HP: </ion-label>
-            <ion-input id="hpInput" placeholder="1-10"></ion-input>
+            <ion-input id="hpInput" placeholder="0-10"></ion-input>
           </ion-item>
         </div>
 
         <div class="ion-text-center" id="attackContainer">
           <ion-item>
             <ion-label id="attackLabel">Attack: </ion-label>
-            <ion-input id="attackInput" placeholder="1-10"></ion-input>
+            <ion-input id="attackInput" placeholder="0-10"></ion-input>
           </ion-item>
 
            <div class="ion-text-center" id="dexContainer">
           <ion-item>
             <ion-label id="dexLabel">Dexterity: </ion-label>
-            <ion-input id="dexInput" placeholder="1-10"></ion-input>
+            <ion-input id="dexInput" placeholder="0-10"></ion-input>
           </ion-item>
         </div>
 

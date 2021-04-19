@@ -38,20 +38,24 @@ export default defineComponent({
     },
     methods: {
         async checkNumbers() {
+            let hp = 0;
+            let attack = 0;
+            let dex = 0;
             let floorLevel = localStorage.getItem('floorLevel');
-            var numbersInput = parseInt(document.getElementById("hpInput").value) +
+           
+            let numbersInput = parseInt(document.getElementById("hpInput").value) +
                 parseInt(document.getElementById("attackInput").value) +
                 parseInt(document.getElementById('dexInput').value);
             localStorage.setItem('pageId', 1)
-            var pageId = localStorage.getItem('pageId');
+            let pageId = localStorage.getItem('pageId');
             if (floorLevel == 1) {
                 if (numbersInput != 10) {
                     alert("you need to distribute exactly 10 points, please adjust values and try again")
                 } else {
-                    var name = document.getElementById('customName').value;
-                    var hp = 15 * (document.getElementById('hpInput').value) + 7;
-                    var attack = 4 * (document.getElementById('attackInput').value) + 5;
-                    let dex = 5 * (document.getElementById('dexInput').value);
+                    let name = document.getElementById('customName').value;
+                    hp = 15 * (document.getElementById('hpInput').value) + 7;
+                    attack = 4 * (document.getElementById('attackInput').value) + 5;
+                    dex = 5 * (document.getElementById('dexInput').value);
                     localStorage.setItem('hp', hp);
                     localStorage.setItem('maxHp', hp);
                     localStorage.setItem('attack', attack);
@@ -83,9 +87,9 @@ export default defineComponent({
                 if (numbersInput != this.points) {
                     alert("you need to distribute exactly " + this.points + " points, please adjust values and try again")
                 } else {
-                    let hp = parseInt(localStorage.getItem('hp')) + (15 * (document.getElementById('hpInput').value));
-                    let attack = parseInt(localStorage.getItem('attack')) + (4 * (document.getElementById('attackInput').value));
-                    let dex = parseInt(localStorage.getItem('dex')) + (5 * (document.getElementById('dexInput').value));
+                    hp = parseInt(localStorage.getItem('hp')) + (15 * (document.getElementById('hpInput').value));
+                    attack = parseInt(localStorage.getItem('attack')) + (4 * (document.getElementById('attackInput').value));
+                    dex = parseInt(localStorage.getItem('dex')) + (5 * (document.getElementById('dexInput').value));
 
                     localStorage.setItem('hp', hp);
                     localStorage.setItem('attack', attack);

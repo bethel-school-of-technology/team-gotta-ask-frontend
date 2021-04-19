@@ -198,7 +198,7 @@ export default defineComponent({
             var hope = this;
             var pageId = localStorage.getItem("pageId");
             if (mult > 1) {
-                let actualMult = (mult / 4) + 1;
+                let actualMult = (mult / 4) + (mult-1);
                 axios
                     .get(`${server.baseURL}/enemy/${pageId}`)
                     .then(
