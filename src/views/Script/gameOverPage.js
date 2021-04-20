@@ -37,8 +37,11 @@ export default defineComponent({
         deletePlayer() {
             let playerId = localStorage.getItem('playerId');
             axios
-                .delete(`${server.baseURL}/player/delete/${playerId}`);
-            window.location.href = "/home"
+                .delete(`${server.baseURL}/player/delete/${playerId}`).
+                then(
+                    localStorage.clear(),
+                    window.location.href = "/home"
+                )
         }
     }
 });

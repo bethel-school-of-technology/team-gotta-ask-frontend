@@ -20,7 +20,8 @@
           </div>
         </div>
         <div id="startButton">
-          <ion-button color="primary" @click="makeLocal()">Begin Journey</ion-button>
+          <ion-button color="primary" @click="makeLocal()">New Game</ion-button>
+          <ion-button id='resume' v-show='ok' color="primary" @click="resume()">Resume</ion-button>
         </div>
         <!-- <div id="quitButton"> -->
           <!--these buttons will most likely have to call script that initiates a request to the backend as well as routes to the correct page-->
