@@ -2,21 +2,21 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Home Page</ion-title>
+        <ion-title>Nimrod's Ascent</ion-title>
       </ion-toolbar>
     </ion-header>
 
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Gotta Ask the Wife RPG</ion-title>
+          <ion-title size="large">Nimrod's Ascent</ion-title>
         </ion-toolbar>
       </ion-header>
 
       <div id="container">
         <div id="purpleBox">
           <div id="whiteBox">
-            <h1 id="titleText">G.A.W. RPG</h1>
+            <h1 id="titleText">Nimrod's Ascent</h1>
           </div>
         </div>
         <div id="startButton">
