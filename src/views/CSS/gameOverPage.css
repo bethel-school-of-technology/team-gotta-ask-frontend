@@ -4,6 +4,7 @@
 
 #textDiv{
   display:grid;
+  justify-content: center;
 }
 
 #text{
