@@ -13,15 +13,8 @@
         </ion-toolbar>
       </ion-header>  
 
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-
+      <div class='container'>
+        <div class='body'>
       <h1 id="title">Victory!</h1>
 
       <div id="textDiv">
@@ -33,7 +26,8 @@
         <ion-button id="button" color="primary" @click="nextLevel()">Keep Playing</ion-button>
         <ion-button id="button" color="danger" @click="deletePlayer()">Quit</ion-button>
       </div>
-
+    </div>
+    </div>
     </ion-content>
   </ion-page>
 </template>

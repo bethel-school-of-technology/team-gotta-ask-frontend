@@ -5,7 +5,6 @@
     width: 100vw;
     height: 80vh;
     text-align: center;
-    overflow: hidden;
 }
 
 #container strong {
@@ -22,7 +21,6 @@
     text-align: center;
     grid-row-start: 5;
     grid-column: 2/7;
-    overflow: hidden;
 }
 #buttons{
     display: grid;
