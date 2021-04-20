@@ -59,6 +59,9 @@ export default defineComponent({
             } else {
                 window.location.href = '/actionPage'
             }
+        },
+        pause() {
+            window.location.href = "/home";
         }
     }
 
