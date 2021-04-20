@@ -42,7 +42,7 @@ export default defineComponent({
             let attack = 0;
             let dex = 0;
             let floorLevel = localStorage.getItem('floorLevel');
-           
+
             let numbersInput = parseInt(document.getElementById("hpInput").value) +
                 parseInt(document.getElementById("attackInput").value) +
                 parseInt(document.getElementById('dexInput').value);
@@ -53,8 +53,8 @@ export default defineComponent({
                     alert("you need to distribute exactly 10 points, please adjust values and try again")
                 } else {
                     let name = document.getElementById('customName').value;
-                    hp = 15 * (document.getElementById('hpInput').value) + 7;
-                    attack = 4 * (document.getElementById('attackInput').value) + 5;
+                    hp = 15 * (document.getElementById('hpInput').value) + 10;
+                    attack = 5 * (document.getElementById('attackInput').value) + 5;
                     dex = 5 * (document.getElementById('dexInput').value);
                     localStorage.setItem('hp', hp);
                     localStorage.setItem('maxHp', hp);
@@ -88,7 +88,7 @@ export default defineComponent({
                     alert("you need to distribute exactly " + this.points + " points, please adjust values and try again")
                 } else {
                     hp = parseInt(localStorage.getItem('hp')) + (15 * (document.getElementById('hpInput').value));
-                    attack = parseInt(localStorage.getItem('attack')) + (4 * (document.getElementById('attackInput').value));
+                    attack = parseInt(localStorage.getItem('attack')) + (5 * (document.getElementById('attackInput').value));
                     dex = parseInt(localStorage.getItem('dex')) + (5 * (document.getElementById('dexInput').value));
 
                     localStorage.setItem('hp', hp);
@@ -115,18 +115,20 @@ export default defineComponent({
         },
 
         levelUp() {
+            this.place = "0-" + this.points;
             let floorLevel = localStorage.getItem('floorLevel');
             console.log(floorLevel);
             if (floorLevel > 1) {
                 this.charName = localStorage.getItem('name');
                 this.title = 'Level Up';
-                this.points = 3;
+                this.points = 1 + parseInt(floorLevel);
                 console.log(this.points);
             } else {
                 this.title = 'Create your Character';
                 this.charName = "Character Name"
                 this.points = 10;
             }
+            this.place = "0-" + this.points;
         }
 
     }

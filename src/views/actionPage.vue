@@ -10,7 +10,7 @@
         <div id="actionText">
           <p>
             {{ enemy.Name }} 
-            Hp: {{ enemy.Hp }}     
+            HP: {{ enemy.Hp }}     
             Attack: {{ enemy.Attack }}<br>
             {{ logText }} <br>
             {{ log2Text }}
