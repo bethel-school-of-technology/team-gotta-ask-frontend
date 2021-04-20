@@ -121,7 +121,7 @@ export default defineComponent({
             if (floorLevel > 1) {
                 this.charName = localStorage.getItem('name');
                 this.title = 'Level Up';
-                this.points = 2 + parseInt(floorLevel);
+                this.points = 2 + Math.floor(parseInt(floorLevel) / 2);
                 console.log(this.points);
             } else {
                 this.title = 'Create your Character';
