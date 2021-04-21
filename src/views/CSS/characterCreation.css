@@ -1,27 +1,49 @@
-ion-item > ion-label{
-  flex: content;
+ion-item>ion-label {
+    flex: content;
 }
 
-#continue{
-  position: fixed;
-  bottom: 20px;
-  right: 20px
+#continue {
+    position: fixed;
+    bottom: 20px;
+    right: 20px
 }
 
-#pointsAvailableContainer{
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(1, 1fr)
+#pointsAvailableContainer {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(1, 1fr)
 }
 
-#pointsAvailable{
-  grid-column-start: 6;
-  grid-column-end: 8;
-  justify-self: center;
+#pointsAvailable {
+    grid-column-start: 6;
+    grid-column-end: 8;
+    justify-self: center;
 }
 
-#statHelp{
-  grid-column-start: 8;
-  grid-column-end: 9;
-  justify-self: left;
+#statHelp {
+    grid-column: 8/9;
+    justify-self: center;
+    align-self: center;
+    padding: .5em;
+}
+
+#inputContainer {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+}
+
+#hpContainer {
+    grid-column: 3/11;
+    grid-row-start: 1;
+}
+
+#attackContainer {
+    grid-column: 3/11;
+    grid-row-start: 2;
+}
+
+#dexContainer {
+    grid-column: 3/11;
+    grid-row-start: 3;
 }

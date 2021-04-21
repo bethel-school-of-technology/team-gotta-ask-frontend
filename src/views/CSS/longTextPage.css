@@ -22,9 +22,10 @@
     grid-row-start: 5;
     grid-column: 2/7;
 }
-#buttons{
+
+#buttons {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     grid-row-start: 10;
     grid-column-start: 6;
 }

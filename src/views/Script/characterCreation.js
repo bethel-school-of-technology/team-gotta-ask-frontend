@@ -8,7 +8,8 @@ import {
     IonInput,
     IonItem,
     IonLabel,
-    IonList
+    IonList,
+    IonIcon
 } from "@ionic/vue";
 import { defineComponent } from "vue";
 import { server } from '../../helper.js';
@@ -26,7 +27,8 @@ export default defineComponent({
         IonInput,
         IonItem,
         IonLabel,
-        IonList
+        IonList,
+        IonIcon
     },
     data() {
         return {
