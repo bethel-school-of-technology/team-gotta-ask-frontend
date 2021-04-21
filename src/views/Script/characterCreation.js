@@ -181,7 +181,10 @@ export default defineComponent({
                 this.points = this.points + 1;
                 this.$forceUpdate();
             }
-        }
+        },
 
+        statHelp() {
+            alert("These numbers will be used to calculate your base stats.")
+        }
     }
 });
