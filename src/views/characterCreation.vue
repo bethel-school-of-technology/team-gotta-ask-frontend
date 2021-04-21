@@ -24,8 +24,9 @@
           <ion-input id="customName" :placeholder = charName></ion-input>
         </div>
 
-        <div class="ion-text-center" id="pointsAvailable">
-          <p>{{ points }} available points</p>
+        <div class="ion-text-center" id="pointsAvailableContainer">
+          <p id="pointsAvailable">{{ points }} available points</p>
+          <ion-button id="statHelp" @click="statHelp()">?</ion-button>
         </div>
   
         <div class="ion-text-center" id="hpContainer">

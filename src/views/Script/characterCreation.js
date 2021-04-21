@@ -129,7 +129,10 @@ export default defineComponent({
                 this.points = 10;
             }
             this.place = "0-" + this.points;
-        }
+        },
 
+        statHelp(){
+            alert("These numbers will be used to calculate your base stats.")
+        }
     }
 });
