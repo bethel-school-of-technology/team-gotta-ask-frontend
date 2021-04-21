@@ -35,17 +35,21 @@ export default defineComponent({
     },
     created() {
         this.levelUp();
+        this.variables();
     },
     methods: {
+        variables() {
+            this.hp = 0;
+            this.attack =0;
+            this.dex =0;
+        },
         async checkNumbers() {
-            let hp = 0;
-            let attack = 0;
-            let dex = 0;
+            let hp = this.hp;
+            let attack = this.attack;
+            let dex = this.dex;
             let floorLevel = localStorage.getItem('floorLevel');
 
-            let numbersInput = parseInt(document.getElementById("hpInput").value) +
-                parseInt(document.getElementById("attackInput").value) +
-                parseInt(document.getElementById('dexInput').value);
+            let numbersInput = hp + attack + dex;
             localStorage.setItem('pageId', 1)
             let pageId = localStorage.getItem('pageId');
             if (floorLevel == 1) {
@@ -53,9 +57,9 @@ export default defineComponent({
                     alert("you need to distribute exactly 10 points, please adjust values and try again")
                 } else {
                     let name = document.getElementById('customName').value;
-                    hp = 15 * (document.getElementById('hpInput').value) + 10;
-                    attack = 5 * (document.getElementById('attackInput').value) + 5;
-                    dex = 5 * (document.getElementById('dexInput').value);
+                    hp = 15 * hp + 10;
+                    attack = 5 * attack + 5;
+                    dex = 5 * dex;
                     localStorage.setItem('hp', hp);
                     localStorage.setItem('maxHp', hp);
                     localStorage.setItem('attack', attack);
@@ -87,9 +91,9 @@ export default defineComponent({
                 if (numbersInput != this.points) {
                     alert("you need to distribute exactly " + this.points + " points, please adjust values and try again")
                 } else {
-                    hp = parseInt(localStorage.getItem('hp')) + (15 * (document.getElementById('hpInput').value));
-                    attack = parseInt(localStorage.getItem('attack')) + (5 * (document.getElementById('attackInput').value));
-                    dex = parseInt(localStorage.getItem('dex')) + (5 * (document.getElementById('dexInput').value));
+                    hp = 15 * hp + 10;
+                    attack = 5 * attack + 5;
+                    dex = 5 * dex;
 
                     localStorage.setItem('hp', hp);
                     localStorage.setItem('attack', attack);
@@ -129,6 +133,54 @@ export default defineComponent({
                 this.points = 10;
             }
             this.place = "0-" + this.points;
+        },
+
+        plusHp() {
+            if(this.points > 0){
+            this.hp = this.hp+1;
+            this.points = this.points-1;
+            this.$forceUpdate();
+            }
+        },
+
+        minusHp() {
+            if(this.points < 10){
+            this.hp = this.hp-1;
+            this.points = this.points+1;
+            this.$forceUpdate();
+            }
+        },
+
+        plusAttack() {
+            if(this.points > 0){
+            this.attack = this.attack+1;
+            this.points = this.points-1;
+            this.$forceUpdate();
+            }
+        },
+
+        minusAttack() {
+            if(this.points < 10){
+            this.attack = this.attack-1;
+            this.points = this.points+1;
+            this.$forceUpdate();
+            }
+        },
+
+        plusDex() {
+            if(this.points > 0){
+            this.dex = this.dex+1;
+            this.points = this.points-1;
+            this.$forceUpdate();
+            }
+        },
+
+        minusDex() {
+            if(this.points < 10){
+            this.dex = this.dex-1;
+            this.points = this.points+1;
+            this.$forceUpdate();
+            }
         }
 
     }

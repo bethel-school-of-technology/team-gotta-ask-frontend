@@ -190,6 +190,9 @@ export default defineComponent({
                 }
                 this.$forceUpdate();
             }
+            else {
+                alert('Enemy is defeated.. Press continue to move on')
+            }
         },
 
         fetchEnemy() {
