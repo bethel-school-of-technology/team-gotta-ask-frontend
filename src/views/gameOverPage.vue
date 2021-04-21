@@ -29,7 +29,7 @@
       </div>
 
       <div id="buttonDiv">
-        <ion-button id="button" color="primary" @click="deletePlayer()">Play Again</ion-button>
+        <button id="button" class="nes-btn is-primary" @click="deletePlayer()">Play Again</button>
       </div>
 
     </ion-content>

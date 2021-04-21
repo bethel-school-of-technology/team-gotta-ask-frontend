@@ -25,12 +25,12 @@
           </ion-list>
         </ion-list>
         <div id="actionButtons">
-          <ion-button @click= "attack(enemy.Hp, enemy.Attack, enemy.Name, player.Hp, player.Attack)" class="aButton" color="danger">Attack</ion-button>
-          <ion-button @click='heal()' class="aButton" color="success">Heal</ion-button>
+          <button @click= "attack(enemy.Hp, enemy.Attack, enemy.Name, player.Hp, player.Attack)" class="aButton nes-btn is-error">Attack</button>
+          <button @click='heal()' class="aButton nes-btn is-success">Heal</button>
         </div>
       </div>
       <div>
-        <ion-button id="continue" color="primary" @click= 'updatePlayer(player.Hp, player.PageId, enemy.Hp)'>Continue</ion-button>
+        <button id="continue" class="nes-btn is-primary" @click= 'updatePlayer(player.Hp, player.PageId, enemy.Hp)'>Continue</button>
       </div>
 
   </ion-page>

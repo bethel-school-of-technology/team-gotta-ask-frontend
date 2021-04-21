@@ -27,7 +27,7 @@
         <div class="ion-text-center" id="pointsAvailableContainer">
           <p id="pointsAvailable">{{ points }} available points</p>
           <ion-icon name="help-circle-outline" size="large" type="button" id="statHelp" @click="statHelp()">?</ion-icon>
-          <!-- <ion-button id="statHelp" @click="statHelp()">?</ion-button> -->
+          <!-- <button id="statHelp" @click="statHelp()">?</button> -->
         </div>
   
       <div id="inputContainer">
@@ -35,7 +35,7 @@
           <ion-item>
             <ion-label id="hpLabel">HP: {{ hp }}</ion-label>
             <!-- <ion-input id="hpInput" :placeholder = place></ion-input> -->
-            <ion-button @click='minusHp()'>-</ion-button><ion-button @click='plusHp()'>+</ion-button>
+            <button class="nes-btn is-error" @click='minusHp()'>-</button><button class="nes-btn is-success" @click='plusHp()'>+</button>
           </ion-item>
         </div>
 
@@ -43,7 +43,7 @@
           <ion-item>
             <ion-label id="attackLabel">Attack: {{ attack }} </ion-label>
             <!-- <ion-input id="attackInput" :placeholder = place></ion-input> -->
-            <ion-button @click='minusAttack()'>-</ion-button><ion-button @click='plusAttack()'>+</ion-button>
+            <button class="nes-btn is-error" @click='minusAttack()'>-</button><button class="nes-btn is-success" @click='plusAttack()'>+</button>
           </ion-item>
         </div>
 
@@ -51,7 +51,7 @@
           <ion-item>
             <ion-label id="dexLabel">Dexterity: {{ dex }}</ion-label>
             <!-- <ion-input id="dexInput" :placeholder = place></ion-input> -->
-            <ion-button @click='minusDex()'>-</ion-button><ion-button @click='plusDex()'>+</ion-button>
+            <button class="nes-btn is-error" @click='minusDex()'>-</button><button class="nes-btn is-success" @click='plusDex()'>+</button>
           </ion-item>
         </div>
         
@@ -59,7 +59,7 @@
         </div>
 
         <div id="continue">
-          <ion-button @click="checkNumbers()">Continue</ion-button>
+          <button class="nes-btn is-primary" @click="checkNumbers()">Continue</button>
         </div>
       </div>
     </ion-content>

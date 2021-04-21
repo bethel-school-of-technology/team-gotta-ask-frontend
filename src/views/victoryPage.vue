@@ -23,8 +23,9 @@
 
       <div id="buttonDiv">
         
-        <ion-button id="button" color="primary" @click="nextLevel()">Keep Playing</ion-button>
-        <ion-button id="button" color="danger" @click="deletePlayer()">Quit</ion-button>
+        <button id="button" class="nes-btn is-primary" @click="nextLevel()">Keep Playing</button>
+        <br>
+        <button id="button" class="nes-btn is-error" @click="deletePlayer()">Quit</button>
       </div>
     </div>
     </div>

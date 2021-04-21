@@ -13,14 +13,14 @@
       </ion-header>
 
       <div id="container">
-        <div id= 'content'>
+        <div id= 'content' class="nes-container is-rounded is-dark">
           <p>
             {{ text.body }}
           </p>
         </div>
           <div id="buttons">
-            <ion-button id='pause' @click='pause()' class="aButton" >Save&Quit</ion-button>
-            <ion-button id="continue" color="primary" @click="continueButton()">Continue</ion-button>
+            <button id='pause' class="aButton nes-btn is-warning" @click='pause()'>Save&Quit</button>
+            <button id="continue" color="primary" class="nes-btn is-primary" @click="continueButton()">Continue</button>
           </div>
       </div>
     </ion-content>
