@@ -189,8 +189,7 @@ export default defineComponent({
                     this.log2Text = "";
                 }
                 this.$forceUpdate();
-            }
-            else {
+            } else {
                 alert("Enemy is defeated... Press continue to move on.")
             }
         },
