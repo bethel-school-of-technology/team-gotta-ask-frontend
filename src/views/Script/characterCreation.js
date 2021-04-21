@@ -40,8 +40,8 @@ export default defineComponent({
     methods: {
         variables() {
             this.hp = 0;
-            this.attack =0;
-            this.dex =0;
+            this.attack = 0;
+            this.dex = 0;
         },
         async checkNumbers() {
             let hp = this.hp;
@@ -136,50 +136,50 @@ export default defineComponent({
         },
 
         plusHp() {
-            if(this.points > 0){
-            this.hp = this.hp+1;
-            this.points = this.points-1;
-            this.$forceUpdate();
+            if (this.points > 0) {
+                this.hp = this.hp + 1;
+                this.points = this.points - 1;
+                this.$forceUpdate();
             }
         },
 
         minusHp() {
-            if(this.points < 10){
-            this.hp = this.hp-1;
-            this.points = this.points+1;
-            this.$forceUpdate();
+            if (this.points < 10 && this.hp > 0) {
+                this.hp = this.hp - 1;
+                this.points = this.points + 1;
+                this.$forceUpdate();
             }
         },
 
         plusAttack() {
-            if(this.points > 0){
-            this.attack = this.attack+1;
-            this.points = this.points-1;
-            this.$forceUpdate();
+            if (this.points > 0) {
+                this.attack = this.attack + 1;
+                this.points = this.points - 1;
+                this.$forceUpdate();
             }
         },
 
         minusAttack() {
-            if(this.points < 10){
-            this.attack = this.attack-1;
-            this.points = this.points+1;
-            this.$forceUpdate();
+            if (this.points < 10 && this.attack > 0) {
+                this.attack = this.attack - 1;
+                this.points = this.points + 1;
+                this.$forceUpdate();
             }
         },
 
         plusDex() {
-            if(this.points > 0){
-            this.dex = this.dex+1;
-            this.points = this.points-1;
-            this.$forceUpdate();
+            if (this.points > 0) {
+                this.dex = this.dex + 1;
+                this.points = this.points - 1;
+                this.$forceUpdate();
             }
         },
 
         minusDex() {
-            if(this.points < 10){
-            this.dex = this.dex-1;
-            this.points = this.points+1;
-            this.$forceUpdate();
+            if (this.points < 10 && this.dex > 0) {
+                this.dex = this.dex - 1;
+                this.points = this.points + 1;
+                this.$forceUpdate();
             }
         }
 
