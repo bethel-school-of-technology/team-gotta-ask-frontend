@@ -4,6 +4,11 @@ import {
     IonPage,
     IonTitle,
     IonToolbar,
+    IonButton,
+    IonInput,
+    IonItem,
+    IonLabel,
+    IonList
 } from "@ionic/vue";
 import axios from "axios";
 import { defineComponent } from "vue";
@@ -17,6 +22,11 @@ export default defineComponent({
         IonPage,
         IonTitle,
         IonToolbar,
+        IonButton,
+        IonInput,
+        IonItem,
+        IonLabel,
+        IonList
     },
 
     created() {
@@ -27,8 +37,11 @@ export default defineComponent({
         deletePlayer() {
             let playerId = localStorage.getItem('playerId');
             axios
-                .delete(`${server.baseURL}/player/delete/${playerId}`);
-            window.location.href = "/home"
+                .delete(`${server.baseURL}/player/delete/${playerId}`).
+                then(
+                    localStorage.clear(),
+                    window.location.href = "/home"
+                )
         }
     }
 });

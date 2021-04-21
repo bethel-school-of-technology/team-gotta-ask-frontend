@@ -4,6 +4,11 @@ import {
     IonPage,
     IonTitle,
     IonToolbar,
+    IonButton,
+    IonInput,
+    IonItem,
+    IonLabel,
+    IonList
 } from "@ionic/vue";
 import { defineComponent } from "vue";
 import { server } from '../../helper.js';
@@ -17,6 +22,11 @@ export default defineComponent({
         IonPage,
         IonTitle,
         IonToolbar,
+        IonButton,
+        IonInput,
+        IonItem,
+        IonLabel,
+        IonList
     },
     data() {
         return {
@@ -25,24 +35,33 @@ export default defineComponent({
     },
     created() {
         this.levelUp();
+        this.variables();
     },
     methods: {
+        variables() {
+            this.hp = 0;
+            this.attack = 0;
+            this.dex = 0;
+        },
         async checkNumbers() {
+            let hp = this.hp;
+            let attack = this.attack;
+            let dex = this.dex;
             let floorLevel = localStorage.getItem('floorLevel');
-            var numbersInput = parseInt(document.getElementById("hpInput").value) +
-                parseInt(document.getElementById("attackInput").value) +
-                parseInt(document.getElementById('dexInput').value);
+
+            let numbersInput = hp + attack + dex;
             localStorage.setItem('pageId', 1)
-            var pageId = localStorage.getItem('pageId');
+            let pageId = localStorage.getItem('pageId');
             if (floorLevel == 1) {
                 if (numbersInput != 10) {
                     alert("you need to distribute exactly 10 points, please adjust values and try again")
                 } else {
-                    var name = document.getElementById('customName').value;
-                    var hp = 15 * (document.getElementById('hpInput').value) + 7;
-                    var attack = 3 * (document.getElementById('attackInput').value) + 5;
-                    let dex = 5 * (document.getElementById('dexInput').value);
+                    let name = document.getElementById('customName').value;
+                    hp = 15 * hp + 10;
+                    attack = 5 * attack + 5;
+                    dex = 5 * dex;
                     localStorage.setItem('hp', hp);
+                    localStorage.setItem('maxHp', hp);
                     localStorage.setItem('attack', attack);
                     localStorage.setItem('name', name);
                     localStorage.setItem('dex', dex);
@@ -72,9 +91,9 @@ export default defineComponent({
                 if (numbersInput != this.points) {
                     alert("you need to distribute exactly " + this.points + " points, please adjust values and try again")
                 } else {
-                    let hp = parseInt(localStorage.getItem('hp')) + (15 * (document.getElementById('hpInput').value));
-                    let attack = parseInt(localStorage.getItem('attack')) + (3 * (document.getElementById('attackInput').value));
-                    let dex = parseInt(localStorage.getItem('dex')) + (5 * (document.getElementById('dexInput').value));
+                    hp = 15 * hp + 10;
+                    attack = 5 * attack + 5;
+                    dex = 5 * dex;
 
                     localStorage.setItem('hp', hp);
                     localStorage.setItem('attack', attack);
@@ -100,19 +119,72 @@ export default defineComponent({
         },
 
         levelUp() {
+            this.place = "0-" + this.points;
             let floorLevel = localStorage.getItem('floorLevel');
             console.log(floorLevel);
             if (floorLevel > 1) {
                 this.charName = localStorage.getItem('name');
                 this.title = 'Level Up';
-                this.points = 3;
+                this.points = 2 + Math.floor(parseInt(floorLevel) / 2);
                 console.log(this.points);
             } else {
                 this.title = 'Create your Character';
                 this.charName = "Character Name"
                 this.points = 10;
             }
-        }
+            this.place = "0-" + this.points;
+        },
 
+        plusHp() {
+            if (this.points > 0) {
+                this.hp = this.hp + 1;
+                this.points = this.points - 1;
+                this.$forceUpdate();
+            }
+        },
+
+        minusHp() {
+            if (this.points < 10 && this.hp > 0) {
+                this.hp = this.hp - 1;
+                this.points = this.points + 1;
+                this.$forceUpdate();
+            }
+        },
+
+        plusAttack() {
+            if (this.points > 0) {
+                this.attack = this.attack + 1;
+                this.points = this.points - 1;
+                this.$forceUpdate();
+            }
+        },
+
+        minusAttack() {
+            if (this.points < 10 && this.attack > 0) {
+                this.attack = this.attack - 1;
+                this.points = this.points + 1;
+                this.$forceUpdate();
+            }
+        },
+
+        plusDex() {
+            if (this.points > 0) {
+                this.dex = this.dex + 1;
+                this.points = this.points - 1;
+                this.$forceUpdate();
+            }
+        },
+
+        minusDex() {
+            if (this.points < 10 && this.dex > 0) {
+                this.dex = this.dex - 1;
+                this.points = this.points + 1;
+                this.$forceUpdate();
+            }
+        },
+
+        statHelp() {
+            alert("These numbers will be used to calculate your base stats.")
+        }
     }
 });

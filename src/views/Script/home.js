@@ -4,6 +4,11 @@ import {
     IonPage,
     IonTitle,
     IonToolbar,
+    IonButton,
+    IonInput,
+    IonItem,
+    IonLabel,
+    IonList
 } from "@ionic/vue";
 import { defineComponent } from "vue";
 
@@ -15,6 +20,20 @@ export default defineComponent({
         IonPage,
         IonTitle,
         IonToolbar,
+        IonButton,
+        IonInput,
+        IonItem,
+        IonLabel,
+        IonList
+    },
+    created() {
+        //let resume = document.getElementById('resume');
+        let pageId = parseInt(localStorage.getItem('pageId'));
+        if(pageId >= 1) {
+            this.ok = true;
+        }else{
+            this.ok = false;
+        }
     },
     methods: {
         makeLocal(){
@@ -23,6 +42,9 @@ export default defineComponent({
             localStorage.setItem('floorLevel', 1);
             console.log('playerId');
             window.location.href = '/characterCreation';
+        },
+        resume(){
+            window.location.href = '/longTextPage';
         }
     }
 });

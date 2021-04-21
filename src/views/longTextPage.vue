@@ -1,11 +1,10 @@
 <template>
-  <ion-page>
+<ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Long Text Page</ion-title>
+        <ion-title>{{ text.title }}</ion-title>
       </ion-toolbar>
     </ion-header>
-
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
@@ -14,14 +13,15 @@
       </ion-header>
 
       <div id="container">
-        <div id="content">
+        <div id= 'content'>
           <p>
             {{ text.body }}
           </p>
-          <div id="continueButton">
+        </div>
+          <div id="buttons">
+            <ion-button id='pause' @click='pause()' class="aButton" >Save&Quit</ion-button>
             <ion-button id="continue" color="primary" @click="continueButton()">Continue</ion-button>
           </div>
-        </div>
       </div>
     </ion-content>
   </ion-page>

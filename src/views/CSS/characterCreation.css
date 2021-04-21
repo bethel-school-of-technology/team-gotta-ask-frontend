@@ -7,3 +7,21 @@ ion-item > ion-label{
   bottom: 20px;
   right: 20px
 }
+
+#pointsAvailableContainer{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(1, 1fr)
+}
+
+#pointsAvailable{
+  grid-column-start: 6;
+  grid-column-end: 8;
+  justify-self: center;
+}
+
+#statHelp{
+  grid-column-start: 8;
+  grid-column-end: 9;
+  justify-self: left;
+}
