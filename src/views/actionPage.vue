@@ -16,14 +16,12 @@
             {{ log2Text }}
           </p>
         </div>
-        <ion-list id="statBar" lines="none">
-          <ion-list id="stats">
-            <ion-item>{{ player.Name }}</ion-item>
-            <ion-item>HP: <br>{{ player.Hp }} / {{ maxHp }}</ion-item>
-            <ion-item>Atk: {{ player.Attack }}</ion-item>
-            <ion-item>Dex: {{ player.Dex }}</ion-item>
-          </ion-list>
-        </ion-list>
+        <div id="statBar">
+            <ion-item lines="none">{{ player.Name }}</ion-item>
+            <ion-item lines="none">HP: <br>{{ player.Hp }} / {{ maxHp }}</ion-item>
+            <ion-item lines="none">Atk: {{ player.Attack }}</ion-item>
+            <ion-item lines="none">Dex: {{ player.Dex }}</ion-item>
+        </div>
         <div id="actionButtons">
           <button @click= "attack(enemy.Hp, enemy.Attack, enemy.Name, player.Hp, player.Attack)" class="aButton nes-btn is-error">Attack</button>
           <button @click='heal()' class="aButton nes-btn is-success">Heal</button>

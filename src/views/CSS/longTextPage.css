@@ -1,3 +1,9 @@
+html *{
+    font-family: "Press Start 2P";
+    font-size: medium;
+}
+
+
 #container {
     display: grid;
     grid-template-rows: repeat(10, 1fr);

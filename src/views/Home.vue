@@ -1,17 +1,17 @@
 <template>
   <ion-page>
-    <ion-header :translucent="true">
+    <!-- <ion-header :translucent="true">
       <ion-toolbar>
         <ion-title>Nimrod's Ascent</ion-title>
       </ion-toolbar>
-    </ion-header>
+    </ion-header> -->
 
-    <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
+    <ion-content>
+      <!-- <ion-header collapse="condense">
         <ion-toolbar>
           <ion-title size="large">Nimrod's Ascent</ion-title>
         </ion-toolbar>
-      </ion-header>
+      </ion-header> --> 
 
       <div id="container">
         <div id="purpleBox">

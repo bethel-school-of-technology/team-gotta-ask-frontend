@@ -13,7 +13,7 @@
       </ion-header>
 
       <div id="container">
-        <div id= 'content' class="nes-container is-rounded is-dark">
+        <div id= 'content' class="nes-container is-centered">
           <p>
             {{ text.body }}
           </p>
