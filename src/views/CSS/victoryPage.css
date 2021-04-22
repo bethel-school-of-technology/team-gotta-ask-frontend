@@ -8,7 +8,7 @@
 }
 .body {
   display: grid;
-  grid-row: 4/8
+  grid-row: 3/7
 }
 #text{
   justify-self: center;

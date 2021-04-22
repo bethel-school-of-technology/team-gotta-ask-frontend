@@ -16,9 +16,6 @@
       <div id="container">
         <br>
         <br>
-        <br>
-        <br>
-        <br>
 
         <div class="ion-text-center" id="characterName">
           <ion-input id="customName" :placeholder = charName></ion-input>
