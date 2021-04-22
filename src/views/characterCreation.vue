@@ -33,7 +33,7 @@
       <div id="inputContainer">
         <div class="ion-text-center" id="hpContainer">
           <ion-item>
-            <ion-label id="hpLabel">HP: {{ hp }}</ion-label>
+            <ion-label  id="hpLabel">HP: {{ hp }}</ion-label>
             <!-- <ion-input id="hpInput" :placeholder = place></ion-input> -->
             <button class="nes-btn is-error" @click='minusHp()'>-</button><button class="nes-btn is-success" @click='plusHp()'>+</button>
           </ion-item>
@@ -48,7 +48,7 @@
         </div>
 
          <div class="ion-text-center" id="dexContainer">
-          <ion-item>
+          <ion-item >
             <ion-label id="dexLabel">Dexterity: {{ dex }}</ion-label>
             <!-- <ion-input id="dexInput" :placeholder = place></ion-input> -->
             <button class="nes-btn is-error" @click='minusDex()'>-</button><button class="nes-btn is-success" @click='plusDex()'>+</button>

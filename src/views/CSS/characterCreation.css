@@ -3,7 +3,6 @@ html * {
     font-size: small;
 }
 
-
 ion-item>ion-label {
     flex: content;
 }
