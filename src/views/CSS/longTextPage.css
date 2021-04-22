@@ -19,7 +19,7 @@ html *{
 
 #container p {
     font-size: 16px;
-    color: #8c8c8c;
+    color: #212529;
     margin: 0;
 }
 
@@ -27,6 +27,7 @@ html *{
     text-align: center;
     grid-row-start: 5;
     grid-column: 2/7;
+    background-color: #2c7418;
 }
 
 #buttons {

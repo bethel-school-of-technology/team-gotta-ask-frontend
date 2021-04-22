@@ -28,15 +28,9 @@ html *{
     background-color: #2c7418;
 }
 
-#whiteBox {
-    display: grid;
-    /*background-color: #99CCFF;*/
-    margin: 2.5em 1.5em;
-}
-
 #titleText {
     grid-row: 2/3;
-    color: black;
+    color: #212529
 }
 
 #startButton {
