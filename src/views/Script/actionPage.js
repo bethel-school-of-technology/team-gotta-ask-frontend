@@ -179,6 +179,7 @@ export default defineComponent({
                 this.logText = enemyHealth[1];
                 console.log(eHp - enemyHealth[3]);
                 console.log(enemyHealth[2]);
+                // Check this if gate or consider promis being in wrong order
                 if (eHp - enemyHealth[3] >= 0 || enemyHealth[2] < 5) {
                     let playerHealth = this.enemyAttack(eAttack, pHp, eName);
                     //console.log(playerHealth[0]);

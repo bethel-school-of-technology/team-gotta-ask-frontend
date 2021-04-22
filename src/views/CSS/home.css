@@ -1,3 +1,8 @@
+html *{
+    font-family: "Press Start 2P";
+    font-size: medium;
+}
+
 #container {
     display: grid;
     grid-template-rows: repeat(12, 1fr);
@@ -10,18 +15,6 @@
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-}
-
-#container strong {
-    font-size: 20px;
-    line-height: 26px;
-}
-
-#container p {
-    font-size: 16px;
-    line-height: 22px;
-    color: white;
-    margin: 0;
 }
 
 #container a {
@@ -38,7 +31,7 @@
 
 #whiteBox {
     display: grid;
-    background-color: #99CCFF;
+    /*background-color: #99CCFF;*/
     margin: 2.5em 1.5em;
 }
 
