@@ -25,19 +25,12 @@ html *{
     display: grid;
     grid-row: 3/6;
     grid-column: 3/11;
-    background-color: #003366;
-    /* border: solid rgb(100, 20, 180) 2px; */
-}
-
-#whiteBox {
-    display: grid;
-    /*background-color: #99CCFF;*/
-    margin: 2.5em 1.5em;
+    background-color: #2c7418;
 }
 
 #titleText {
     grid-row: 2/3;
-    color: black;
+    color: #212529
 }
 
 #startButton {
