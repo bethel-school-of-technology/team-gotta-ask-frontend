@@ -8,7 +8,8 @@ import {
     IonInput,
     IonItem,
     IonLabel,
-    IonList
+    IonList,
+    IonIcon
 } from "@ionic/vue";
 import { defineComponent } from "vue";
 import { server } from '../../helper.js';
@@ -26,7 +27,8 @@ export default defineComponent({
         IonInput,
         IonItem,
         IonLabel,
-        IonList
+        IonList,
+        IonIcon
     },
     data() {
         return {
@@ -39,15 +41,29 @@ export default defineComponent({
     },
     methods: {
         variables() {
-            this.hp = 0;
-            this.attack = 0;
-            this.dex = 0;
+            let floorLevel = localStorage.getItem('floorLevel');
+            let hp = parseInt(localStorage.getItem('baseHp'));
+            let attack = parseInt(localStorage.getItem('baseAttack'));
+            let dex = parseInt(localStorage.getItem('baseDex'));
+            if(floorLevel == 1){
+                this.hp = 0;
+                this.attack = 0;
+                this.dex = 0;
+            }
+            else {
+                this.hp = hp;
+                this.attack = attack;
+                this.dex = dex;
+            }
         },
         async checkNumbers() {
             let hp = this.hp;
             let attack = this.attack;
             let dex = this.dex;
             let floorLevel = localStorage.getItem('floorLevel');
+            localStorage.setItem('baseHp', hp);
+            localStorage.setItem('baseAttack', attack);
+            localStorage.setItem('baseDex', dex);
 
             let numbersInput = hp + attack + dex;
             localStorage.setItem('pageId', 1)
@@ -88,7 +104,7 @@ export default defineComponent({
             } else if (floorLevel > 1) {
                 let name = localStorage.getItem('name');
                 let playerId = localStorage.getItem('playerId');
-                if (numbersInput != this.points) {
+                if (this.points != 0) {
                     alert("you need to distribute exactly " + this.points + " points, please adjust values and try again")
                 } else {
                     hp = 15 * hp + 10;
