@@ -25,8 +25,7 @@ html *{
     display: grid;
     grid-row: 3/6;
     grid-column: 3/11;
-    background-color: #003366;
-    /* border: solid rgb(100, 20, 180) 2px; */
+    background-color: #2c7418;
 }
 
 #whiteBox {

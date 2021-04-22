@@ -14,8 +14,6 @@
       </ion-header>
 
       <div id="container">
-        <br>
-        <br>
 
         <div class="ion-text-center" id="characterName">
           <ion-input id="customName" :placeholder = charName></ion-input>
@@ -27,37 +25,36 @@
           <!-- <button id="statHelp" @click="statHelp()">?</button> -->
         </div>
   
-      <div id="inputContainer">
-        <div class="ion-text-center" id="hpContainer">
-          <ion-item>
-            <ion-label  id="hpLabel">HP: {{ hp }}</ion-label>
-            <!-- <ion-input id="hpInput" :placeholder = place></ion-input> -->
-            <button class="nes-btn is-error" @click='minusHp()'>-</button><button class="nes-btn is-success" @click='plusHp()'>+</button>
-          </ion-item>
-        </div>
+        <div id="inputContainer">
+          <div class="ion-text-center" id="hpContainer">
+            <ion-item>
+              <ion-label  id="hpLabel">HP: {{ hp }}</ion-label>
+              <!-- <ion-input id="hpInput" :placeholder = place></ion-input> -->
+              <button class="nes-btn is-error" @click='minusHp()'>-</button><button class="nes-btn is-success" @click='plusHp()'>+</button>
+            </ion-item>
+          </div>
 
-        <div class="ion-text-center" id="attackContainer">
-          <ion-item>
-            <ion-label id="attackLabel">Attack: {{ attack }} </ion-label>
-            <!-- <ion-input id="attackInput" :placeholder = place></ion-input> -->
-            <button class="nes-btn is-error" @click='minusAttack()'>-</button><button class="nes-btn is-success" @click='plusAttack()'>+</button>
-          </ion-item>
-        </div>
+          <div class="ion-text-center" id="attackContainer">
+            <ion-item>
+              <ion-label id="attackLabel">Attack: {{ attack }} </ion-label>
+              <!-- <ion-input id="attackInput" :placeholder = place></ion-input> -->
+              <button class="nes-btn is-error" @click='minusAttack()'>-</button><button class="nes-btn is-success" @click='plusAttack()'>+</button>
+            </ion-item>
+          </div>
 
          <div class="ion-text-center" id="dexContainer">
-          <ion-item >
-            <ion-label id="dexLabel">Dexterity: {{ dex }}</ion-label>
-            <!-- <ion-input id="dexInput" :placeholder = place></ion-input> -->
-            <button class="nes-btn is-error" @click='minusDex()'>-</button><button class="nes-btn is-success" @click='plusDex()'>+</button>
-          </ion-item>
-        </div>
-        
-
+            <ion-item >
+              <ion-label id="dexLabel">Dexterity: {{ dex }}</ion-label>
+              <!-- <ion-input id="dexInput" :placeholder = place></ion-input> -->
+              <button class="nes-btn is-error" @click='minusDex()'>-</button><button class="nes-btn is-success" @click='plusDex()'>+</button>
+            </ion-item>
+          </div>
         </div>
 
         <div id="continue">
           <button class="nes-btn is-primary" @click="checkNumbers()">Continue</button>
         </div>
+        
       </div>
     </ion-content>
   </ion-page>

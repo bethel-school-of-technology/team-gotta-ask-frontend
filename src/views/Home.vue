@@ -14,10 +14,8 @@
       </ion-header> --> 
 
       <div id="container">
-        <div id="purpleBox">
-          <div id="whiteBox">
-            <h1 id="titleText">Nimrod's Ascent</h1>
-          </div>
+        <div id="purpleBox" class="nes-container is-rounded">
+          <h1 id="titleText">Nimrod's Ascent</h1>
         </div>
         <div id="startButton">
           <button class="nes-btn is-primary" @click="makeLocal()">New Game</button>

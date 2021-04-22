@@ -7,7 +7,7 @@
     </ion-header>
 
       <div id="container">
-        <div id="actionText">
+        <div id="actionText" class="nes-container is-rounded">
           <p>
             {{ enemy.Name }} 
             HP: {{ enemy.Hp }}     
