@@ -1,17 +1,6 @@
 <template>
   <ion-page>
-    <ion-header :translucent="true">
-      <ion-toolbar>
-        <ion-title>Game Over Page</ion-title>
-      </ion-toolbar>
-    </ion-header>
-
-    <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Game Over</ion-title>
-        </ion-toolbar>
-      </ion-header>
+    <ion-content>
 
       <div id="container">
         <h1 id="title">Game Over!</h1>
