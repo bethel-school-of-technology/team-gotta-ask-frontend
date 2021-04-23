@@ -1,32 +1,33 @@
 <template>
   <ion-page>
-    <ion-header :translucent="true">
+    <!-- <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Victory Page</ion-title>
+        <ion-title></ion-title>
       </ion-toolbar>
-    </ion-header>
+    </ion-header> -->
 
     <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
+      <!-- <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Victory</ion-title>
+          <ion-title size="large"></ion-title>
         </ion-toolbar>
-      </ion-header>  
+      </ion-header>   -->
 
       <div class='container'>
         
         <h1 id="title">Victory!</h1>
 
         <div class='body'>
+
           <div id="textDiv">
-            <p id="text">Are you really satisfied with stopping now? Don't quit while you're ahead and keep going.</p>
+            <p id="text">Are you really satisfied with stopping now? Don't quit while you're ahead!</p>
           </div>
 
           <div id="buttonDiv">
-            <button id="button" class="nes-btn is-primary" @click="nextLevel()">Keep Playing</button>
-            <br>
-            <button id="button" class="nes-btn is-error" @click="deletePlayer()">Quit</button>
+            <button id="button1" class="nes-btn is-primary" @click="nextLevel()">Keep Playing</button>
+            <button id="button2" class="nes-btn is-error" @click="deletePlayer()">Quit</button>
           </div>
+
         </div>
       </div>
 

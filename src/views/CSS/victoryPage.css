@@ -4,37 +4,55 @@ html *{
 
 #title{
   text-align: center;
-  grid-row: 2
-}
-
-#text{
-  text-align: center
+  align-self: end;
+  grid-row: 2/3;
+  grid-column: 2/7;
 }
 
 .container {
   display: grid;
   grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   justify-content: center;
   width: 100vw;
-  height: 70vh
+  height: 100vh
 }
+
 
 .body {
   display: grid;
-  grid-row: 3/7
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 2fr 1fr;
+  grid-row: 3/6;
+  grid-column: 2/7;
+  text-align: center;
+  justify-content: center;
 }
 
-#text{
+#textDiv{
+  display: grid;
+  grid-column: 1/8;
+  grid-row: 1/2;
   justify-self: center;
-  margin: 1em;
-  padding: 1em;
-  max-width: 720px
+  align-items: center;
+  text-align: center;
 }
 
 #buttonDiv{
   display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-column: 1/8;
+  grid-row: 2/3;
+  align-items: center;
 }
-
-#button{
-  justify-self: top;
+#button1, #button2 {
+  display: grid;
+  max-height: 2.5em;
+  max-width: 25em;
+  min-width: 15em;
+  justify-self: center;
+  /* margin: auto; */
+}
+#button2 {
+  align-self: start;
 }
